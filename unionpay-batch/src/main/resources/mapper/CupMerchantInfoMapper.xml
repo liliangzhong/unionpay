@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unionpay.dao.repository.CupMerchantInfoMapper">
+    
+    <resultMap type="com.unionpay.dao.model.CupMerchantInfo" id="CupMerchantInfoResult">
+        <result property="mchntCd"    column="mchnt_cd"    />
+        <result property="mchntSvcTp"    column="mchnt_svc_tp"    />
+        <result property="cupBranchInsIdCd"    column="cup_branch_ins_id_cd"    />
+        <result property="mchntCnNm"    column="mchnt_cn_nm"    />
+        <result property="mchntCnAbbr"    column="mchnt_cn_abbr"    />
+        <result property="acqInsIdCd"    column="acq_ins_id_cd"    />
+        <result property="acptInsIdCd"    column="acpt_ins_id_cd"    />
+        <result property="platInsIdCd"    column="plat_ins_id_cd"    />
+        <result property="acqAccessInsIdCd"    column="acq_access_ins_id_cd"    />
+        <result property="cntryCd"    column="cntry_cd"    />
+        <result property="gbRegionCd"    column="gb_region_cd"    />
+        <result property="acqRegionCd"    column="acq_region_cd"    />
+        <result property="mchntTp"    column="mchnt_tp"    />
+        <result property="regionCd"    column="region_cd"    />
+        <result property="realMchntTp"    column="real_mchnt_tp"    />
+        <result property="mchntGrp"    column="mchnt_grp"    />
+        <result property="mchntSt"    column="mchnt_st"    />
+        <result property="industryTp"    column="industry_tp"    />
+        <result property="cardAccptNmAddr"    column="card_accpt_nm_addr"    />
+        <result property="mchntEnNm"    column="mchnt_en_nm"    />
+        <result property="mchntEnAbbr"    column="mchnt_en_abbr"    />
+        <result property="resvFld2"    column="resv_fld2"    />
+        <result property="connMd"    column="conn_md"    />
+        <result property="misMchntIn"    column="mis_mchnt_in"    />
+        <result property="mchntAcptCurrBmp"    column="mchnt_acpt_curr_bmp"    />
+        <result property="mchntDftCurrCd"    column="mchnt_dft_curr_cd"    />
+        <result property="licNo"    column="lic_no"    />
+        <result property="licExpireDt"    column="lic_expire_dt"    />
+        <result property="issOrgan"    column="iss_organ"    />
+        <result property="regAddr"    column="reg_addr"    />
+        <result property="reveRegCd"    column="reve_reg_cd"    />
+        <result property="etpsAttr"    column="etps_attr"    />
+        <result property="corpId"    column="corp_id"    />
+        <result property="artifCertifTp"    column="artif_certif_tp"    />
+        <result property="artifCertifId"    column="artif_certif_id"    />
+        <result property="artifNm"    column="artif_nm"    />
+        <result property="contactPersonNm"    column="contact_person_nm"    />
+        <result property="commAddr"    column="comm_addr"    />
+        <result property="zipCd"    column="zip_cd"    />
+        <result property="phone"    column="phone"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="emailAddr"    column="email_addr"    />
+        <result property="faxNo"    column="fax_no"    />
+        <result property="cfoNm"    column="cfo_nm"    />
+        <result property="maintnCompanyTp"    column="maintn_company_tp"    />
+        <result property="regCap"    column="reg_cap"    />
+        <result property="regCaptialCurrCd"    column="reg_captial_curr_cd"    />
+        <result property="bussRange"    column="buss_range"    />
+        <result property="bussAddr"    column="buss_addr"    />
+        <result property="signIn"    column="sign_in"    />
+        <result property="enotesIn"    column="enotes_in"    />
+        <result property="settleInsTp"    column="settle_ins_tp"    />
+        <result property="acctInsIdCd"    column="acct_ins_id_cd"    />
+        <result property="mchntSettleMd"    column="mchnt_settle_md"    />
+        <result property="packMchntCd"    column="pack_mchnt_cd"    />
+        <result property="cycleSettleTp"    column="cycle_settle_tp"    />
+        <result property="prepayReturnTp"    column="prepay_return_tp"    />
+        <result property="mchntSettleIn"    column="mchnt_settle_in"    />
+        <result property="bankNm1"    column="bank_nm1"    />
+        <result property="bankSettleNo1"    column="bank_settle_no1"    />
+        <result property="mchntSettleBankCd"    column="mchnt_settle_bank_cd"    />
+        <result property="acctCurrCd1"    column="acct_curr_cd1"    />
+        <result property="acctNm1"    column="acct_nm1"    />
+        <result property="acctNo1"    column="acct_no1"    />
+        <result property="specSettleIn"    column="spec_settle_in"    />
+        <result property="issInsIdCd"    column="iss_ins_id_cd"    />
+        <result property="specDiscTp"    column="spec_disc_tp"    />
+        <result property="specDiscLvl"    column="spec_disc_lvl"    />
+        <result property="allotAlgo"    column="allot_algo"    />
+        <result property="mchntDiscDetIndex"    column="mchnt_disc_det_index"    />
+        <result property="mcmgmAllotItemIndex"    column="mcmgm_allot_item_index"    />
+        <result property="allotRole"    column="allot_role"    />
+        <result property="allotInsIdCd1"    column="allot_ins_id_cd1"    />
+        <result property="allotInsIdCd2"    column="allot_ins_id_cd2"    />
+        <result property="allotInsIdCd3"    column="allot_ins_id_cd3"    />
+        <result property="allotInsIdCd4"    column="allot_ins_id_cd4"    />
+        <result property="allotInsIdCd5"    column="allot_ins_id_cd5"    />
+        <result property="mchntClass"    column="mchnt_class"    />
+        <result property="rptGenInBmp"    column="rpt_gen_in_bmp"    />
+        <result property="insResv7"    column="ins_resv7"    />
+        <result property="bankSettleSeq"    column="bank_settle_seq"    />
+        <result property="indaySettleIn"    column="inday_settle_in"    />
+        <result property="addnInf"    column="addn_inf"    />
+        <result property="iferrAcqPayFlag"    column="iferr_acq_pay_flag"    />
+        <result property="mchntPrioIn"    column="mchnt_prio_in"    />
+        <result property="indayCycleMsgNo"    column="inday_cycle_msg_no"    />
+        <result property="indayCycleBussTp"    column="inday_cycle_buss_tp"    />
+        <result property="enddayCycleMsgNo"    column="endday_cycle_msg_no"    />
+        <result property="enddayCycleBussTp"    column="endday_cycle_buss_tp"    />
+        <result property="anyCycleDbitMsgNo"    column="any_cycle_dbit_msg_no"    />
+        <result property="anyCycleDbitBussTp"    column="any_cycle_dbit_buss_tp"    />
+        <result property="mchntAttrBmp"    column="mchnt_attr_bmp"    />
+        <result property="feeSettleInsTp"    column="fee_settle_ins_tp"    />
+        <result property="mchntFeeBankNm"    column="mchnt_fee_bank_nm"    />
+        <result property="mchntFeeAcctBankCd"    column="mchnt_fee_acct_bank_cd"    />
+        <result property="mchntFeeAcct"    column="mchnt_fee_acct"    />
+        <result property="mchntFeeAcctNm"    column="mchnt_fee_acct_nm"    />
+        <result property="mchntFeeSettleBankCd"    column="mchnt_fee_settle_bank_cd"    />
+        <result property="mchntFeeAcctInsIdCd"    column="mchnt_fee_acct_ins_id_cd"    />
+        <result property="spInsIdCd"    column="sp_ins_id_cd"    />
+        <result property="industryInsIdCd"    column="industry_ins_id_cd"    />
+        <result property="mchntBussProcTp"    column="mchnt_buss_proc_tp"    />
+        <result property="trustAppTp"    column="trust_app_tp"    />
+        <result property="lateFeeCalcIn"    column="late_fee_calc_in"    />
+        <result property="lateFeeCalcMd"    column="late_fee_calc_md"    />
+        <result property="lateFeeUsrTp"    column="late_fee_usr_tp"    />
+        <result property="maxBillPrintNum"    column="max_bill_print_num"    />
+        <result property="fixAt"    column="fix_at"    />
+        <result property="lateFeeLowerLimit"    column="late_fee_lower_limit"    />
+        <result property="lateFeeHigherLimit"    column="late_fee_higher_limit"    />
+        <result property="lateFeeBaseRt"    column="late_fee_base_rt"    />
+        <result property="lateFeeOverYearRt"    column="late_fee_over_year_rt"    />
+        <result property="mchntSettleAttr"    column="mchnt_settle_attr"    />
+        <result property="entrustRelationIn"    column="entrust_relation_in"    />
+        <result property="addActEntrustIn"    column="add_act_entrust_in"    />
+        <result property="taxTp"    column="tax_tp"    />
+        <result property="settleTreBankNo"    column="settle_tre_bank_no"    />
+        <result property="pwdEncTp"    column="pwd_enc_tp"    />
+        <result property="pwdEncIndex"    column="pwd_enc_index"    />
+        <result property="chnlMchntCd"    column="chnl_mchnt_cd"    />
+        <result property="specChargeIn"    column="spec_charge_in"    />
+        <result property="allotIn"    column="allot_in"    />
+        <result property="svcNetUrl"    column="svc_net_url"    />
+        <result property="mchntWebSiteNm"    column="mchnt_web_site_nm"    />
+        <result property="bussTp"    column="buss_tp"    />
+        <result property="prodFunc"    column="prod_func"    />
+        <result property="ebussTp"    column="ebuss_tp"    />
+        <result property="prodFuncDesc"    column="prod_func_desc"    />
+        <result property="singleAtLimit"    column="single_at_limit"    />
+        <result property="singleAtLimitDesc"    column="single_at_limit_desc"    />
+        <result property="singleCardDayAtLimit"    column="single_card_day_at_limit"    />
+        <result property="singleCardDayAtLimitDesc"    column="single_card_day_at_limit_desc"    />
+        <result property="bussCont1"    column="buss_cont1"    />
+        <result property="bussCont1Tel"    column="buss_cont1_tel"    />
+        <result property="bussCont1Cell"    column="buss_cont1_cell"    />
+        <result property="bussCont1Email"    column="buss_cont1_email"    />
+        <result property="bussCont2"    column="buss_cont2"    />
+        <result property="bussCont2Tel"    column="buss_cont2_tel"    />
+        <result property="bussCont2Cell"    column="buss_cont2_cell"    />
+        <result property="bussCont2Email"    column="buss_cont2_email"    />
+        <result property="cupBranchResv10"    column="cup_branch_resv10"    />
+        <result property="cupBranchResv9"    column="cup_branch_resv9"    />
+        <result property="cycleMchntIn"    column="cycle_mchnt_in"    />
+        <result property="mchntTransTp"    column="mchnt_trans_tp"    />
+        <result property="frnAcqInsIdCd"    column="frn_acq_ins_id_cd"    />
+        <result property="insResv8"    column="ins_resv8"    />
+        <result property="svcFeeIn"    column="svc_fee_in"    />
+        <result property="instlIn"    column="instl_in"    />
+        <result property="callCenterPhone"    column="call_center_phone"    />
+        <result property="mchntLvl"    column="mchnt_lvl"    />
+        <result property="posNum"    column="pos_num"    />
+        <result property="casherNum"    column="casher_num"    />
+        <result property="mchntOpenDt"    column="mchnt_open_dt"    />
+        <result property="constrQuitDt"    column="constr_quit_dt"    />
+        <result property="transChnl"    column="trans_chnl"    />
+        <result property="constrQuitRsnCd"    column="constr_quit_rsn_cd"    />
+        <result property="remark"    column="remark"    />
+        <result property="cupBranchSpecFld"    column="cup_branch_spec_fld"    />
+        <result property="insResv1"    column="ins_resv1"    />
+        <result property="insResv2"    column="ins_resv2"    />
+        <result property="insResv3"    column="ins_resv3"    />
+        <result property="insResv4"    column="ins_resv4"    />
+        <result property="insResv5"    column="ins_resv5"    />
+        <result property="insResv6"    column="ins_resv6"    />
+        <result property="insResv9"    column="ins_resv9"    />
+        <result property="insResv10"    column="ins_resv10"    />
+        <result property="cupBranchResv1"    column="cup_branch_resv1"    />
+        <result property="cupBranchResv2"    column="cup_branch_resv2"    />
+        <result property="cupBranchResv3"    column="cup_branch_resv3"    />
+        <result property="cupBranchResv4"    column="cup_branch_resv4"    />
+        <result property="cupBranchResv5"    column="cup_branch_resv5"    />
+        <result property="cupBranchResv6"    column="cup_branch_resv6"    />
+        <result property="cupBranchResv7"    column="cup_branch_resv7"    />
+        <result property="cupBranchResv8"    column="cup_branch_resv8"    />
+        <result property="cupHdqrsResv1"    column="cup_hdqrs_resv1"    />
+        <result property="cupHdqrsResv2"    column="cup_hdqrs_resv2"    />
+        <result property="cupHdqrsResv3"    column="cup_hdqrs_resv3"    />
+        <result property="cupHdqrsResv4"    column="cup_hdqrs_resv4"    />
+        <result property="mchntNegActIn"    column="mchnt_neg_act_in"    />
+        <result property="riskArtifIn"    column="risk_artif_in"    />
+        <result property="riskMchntIn"    column="risk_mchnt_in"    />
+        <result property="susMchntIn"    column="sus_mchnt_in"    />
+        <result property="hdqrsBranchIn"    column="hdqrs_branch_in"    />
+        <result property="hdqrsMchntCd"    column="hdqrs_mchnt_cd"    />
+        <result property="recnclTp"    column="recncl_tp"    />
+        <result property="netMchntSvcTp"    column="net_mchnt_svc_tp"    />
+        <result property="principalNm"    column="principal_nm"    />
+        <result property="submchntIn"    column="submchnt_in"    />
+        <result property="svcInsNm"    column="svc_ins_nm"    />
+        <result property="cooking"    column="cooking"    />
+        <result property="mchntIcp"    column="mchnt_icp"    />
+        <result property="trafficLine"    column="traffic_line"    />
+        <result property="directAcqSettleIn"    column="direct_acq_settle_in"    />
+        <result property="nmAddr"    column="nm_addr"    />
+        <result property="allotCd"    column="allot_cd"    />
+        <result property="mccApplRule"    column="mcc_appl_rule"    />
+        <result property="masterPwd"    column="master_pwd"    />
+        <result property="mccApplRsnCd"    column="mcc_appl_rsn_cd"    />
+        <result property="specFeeStdDesc"    column="spec_fee_std_desc"    />
+        <result property="nmAddr1"    column="nm_addr1"    />
+    </resultMap>
+	
+	<sql id="selectCupMerchantInfoVo">
+        select mchnt_cd, mchnt_svc_tp, cup_branch_ins_id_cd, mchnt_cn_nm, mchnt_cn_abbr, acq_ins_id_cd, acpt_ins_id_cd, plat_ins_id_cd, acq_access_ins_id_cd, cntry_cd, gb_region_cd, acq_region_cd, mchnt_tp, region_cd, real_mchnt_tp, mchnt_grp, mchnt_st, industry_tp, card_accpt_nm_addr, mchnt_en_nm, mchnt_en_abbr, resv_fld2, conn_md, mis_mchnt_in, mchnt_acpt_curr_bmp, mchnt_dft_curr_cd, lic_no, lic_expire_dt, iss_organ, reg_addr, reve_reg_cd, etps_attr, corp_id, artif_certif_tp, artif_certif_id, artif_nm, contact_person_nm, comm_addr, zip_cd, phone, mobile, email_addr, fax_no, cfo_nm, maintn_company_tp, reg_cap, reg_captial_curr_cd, buss_range, buss_addr, sign_in, enotes_in, settle_ins_tp, acct_ins_id_cd, mchnt_settle_md, pack_mchnt_cd, cycle_settle_tp, prepay_return_tp, mchnt_settle_in, bank_nm1, bank_settle_no1, mchnt_settle_bank_cd, acct_curr_cd1, acct_nm1, acct_no1, spec_settle_in, iss_ins_id_cd, spec_disc_tp, spec_disc_lvl, allot_algo, mchnt_disc_det_index, mcmgm_allot_item_index, allot_role, allot_ins_id_cd1, allot_ins_id_cd2, allot_ins_id_cd3, allot_ins_id_cd4, allot_ins_id_cd5, mchnt_class, rpt_gen_in_bmp, ins_resv7, bank_settle_seq, inday_settle_in, addn_inf, iferr_acq_pay_flag, mchnt_prio_in, inday_cycle_msg_no, inday_cycle_buss_tp, endday_cycle_msg_no, endday_cycle_buss_tp, any_cycle_dbit_msg_no, any_cycle_dbit_buss_tp, mchnt_attr_bmp, fee_settle_ins_tp, mchnt_fee_bank_nm, mchnt_fee_acct_bank_cd, mchnt_fee_acct, mchnt_fee_acct_nm, mchnt_fee_settle_bank_cd, mchnt_fee_acct_ins_id_cd, sp_ins_id_cd, industry_ins_id_cd, mchnt_buss_proc_tp, trust_app_tp, late_fee_calc_in, late_fee_calc_md, late_fee_usr_tp, max_bill_print_num, fix_at, late_fee_lower_limit, late_fee_higher_limit, late_fee_base_rt, late_fee_over_year_rt, mchnt_settle_attr, entrust_relation_in, add_act_entrust_in, tax_tp, settle_tre_bank_no, pwd_enc_tp, pwd_enc_index, chnl_mchnt_cd, spec_charge_in, allot_in, svc_net_url, mchnt_web_site_nm, buss_tp, prod_func, ebuss_tp, prod_func_desc, single_at_limit, single_at_limit_desc, single_card_day_at_limit, single_card_day_at_limit_desc, buss_cont1, buss_cont1_tel, buss_cont1_cell, buss_cont1_email, buss_cont2, buss_cont2_tel, buss_cont2_cell, buss_cont2_email, cup_branch_resv10, cup_branch_resv9, cycle_mchnt_in, mchnt_trans_tp, frn_acq_ins_id_cd, ins_resv8, svc_fee_in, instl_in, call_center_phone, mchnt_lvl, pos_num, casher_num, mchnt_open_dt, constr_quit_dt, trans_chnl, constr_quit_rsn_cd, remark, cup_branch_spec_fld, ins_resv1, ins_resv2, ins_resv3, ins_resv4, ins_resv5, ins_resv6, ins_resv9, ins_resv10, cup_branch_resv1, cup_branch_resv2, cup_branch_resv3, cup_branch_resv4, cup_branch_resv5, cup_branch_resv6, cup_branch_resv7, cup_branch_resv8, cup_hdqrs_resv1, cup_hdqrs_resv2, cup_hdqrs_resv3, cup_hdqrs_resv4, mchnt_neg_act_in, risk_artif_in, risk_mchnt_in, sus_mchnt_in, hdqrs_branch_in, hdqrs_mchnt_cd, recncl_tp, net_mchnt_svc_tp, principal_nm, submchnt_in, svc_ins_nm, cooking, mchnt_icp, traffic_line, direct_acq_settle_in, nm_addr, allot_cd, mcc_appl_rule, master_pwd, mcc_appl_rsn_cd, spec_fee_std_desc, nm_addr1 from cup_merchant_info
+    </sql>
+	
+    <select id="selectCupMerchantInfoList" parameterType="com.unionpay.dao.model.CupMerchantInfo" resultMap="CupMerchantInfoResult">
+        <include refid="selectCupMerchantInfoVo"/>
+        <where>  
+            <if test="mchntCd != null  and mchntCd != '' "> and mchnt_cd = #{mchntCd}</if>
+             <if test="mchntSvcTp != null  and mchntSvcTp != '' "> and mchnt_svc_tp = #{mchntSvcTp}</if>
+             <if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != '' "> and cup_branch_ins_id_cd = #{cupBranchInsIdCd}</if>
+             <if test="mchntCnNm != null  and mchntCnNm != '' "> and mchnt_cn_nm = #{mchntCnNm}</if>
+             <if test="mchntCnAbbr != null  and mchntCnAbbr != '' "> and mchnt_cn_abbr = #{mchntCnAbbr}</if>
+             <if test="acqInsIdCd != null  and acqInsIdCd != '' "> and acq_ins_id_cd = #{acqInsIdCd}</if>
+             <if test="acptInsIdCd != null  and acptInsIdCd != '' "> and acpt_ins_id_cd = #{acptInsIdCd}</if>
+             <if test="platInsIdCd != null  and platInsIdCd != '' "> and plat_ins_id_cd = #{platInsIdCd}</if>
+             <if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != '' "> and acq_access_ins_id_cd = #{acqAccessInsIdCd}</if>
+             <if test="cntryCd != null  and cntryCd != '' "> and cntry_cd = #{cntryCd}</if>
+             <if test="gbRegionCd != null  and gbRegionCd != '' "> and gb_region_cd = #{gbRegionCd}</if>
+             <if test="acqRegionCd != null  and acqRegionCd != '' "> and acq_region_cd = #{acqRegionCd}</if>
+             <if test="mchntTp != null  and mchntTp != '' "> and mchnt_tp = #{mchntTp}</if>
+             <if test="regionCd != null  and regionCd != '' "> and region_cd = #{regionCd}</if>
+             <if test="realMchntTp != null  and realMchntTp != '' "> and real_mchnt_tp = #{realMchntTp}</if>
+             <if test="mchntGrp != null  and mchntGrp != '' "> and mchnt_grp = #{mchntGrp}</if>
+             <if test="mchntSt != null  and mchntSt != '' "> and mchnt_st = #{mchntSt}</if>
+             <if test="industryTp != null  and industryTp != '' "> and industry_tp = #{industryTp}</if>
+             <if test="cardAccptNmAddr != null  and cardAccptNmAddr != '' "> and card_accpt_nm_addr = #{cardAccptNmAddr}</if>
+             <if test="mchntEnNm != null  and mchntEnNm != '' "> and mchnt_en_nm = #{mchntEnNm}</if>
+             <if test="mchntEnAbbr != null  and mchntEnAbbr != '' "> and mchnt_en_abbr = #{mchntEnAbbr}</if>
+             <if test="resvFld2 != null  and resvFld2 != '' "> and resv_fld2 = #{resvFld2}</if>
+             <if test="connMd != null  and connMd != '' "> and conn_md = #{connMd}</if>
+             <if test="misMchntIn != null  and misMchntIn != '' "> and mis_mchnt_in = #{misMchntIn}</if>
+             <if test="mchntAcptCurrBmp != null  and mchntAcptCurrBmp != '' "> and mchnt_acpt_curr_bmp = #{mchntAcptCurrBmp}</if>
+             <if test="mchntDftCurrCd != null  and mchntDftCurrCd != '' "> and mchnt_dft_curr_cd = #{mchntDftCurrCd}</if>
+             <if test="licNo != null  and licNo != '' "> and lic_no = #{licNo}</if>
+             <if test="licExpireDt != null  and licExpireDt != '' "> and lic_expire_dt = #{licExpireDt}</if>
+             <if test="issOrgan != null  and issOrgan != '' "> and iss_organ = #{issOrgan}</if>
+             <if test="regAddr != null  and regAddr != '' "> and reg_addr = #{regAddr}</if>
+             <if test="reveRegCd != null  and reveRegCd != '' "> and reve_reg_cd = #{reveRegCd}</if>
+             <if test="etpsAttr != null  and etpsAttr != '' "> and etps_attr = #{etpsAttr}</if>
+             <if test="corpId != null  and corpId != '' "> and corp_id = #{corpId}</if>
+             <if test="artifCertifTp != null  and artifCertifTp != '' "> and artif_certif_tp = #{artifCertifTp}</if>
+             <if test="artifCertifId != null  and artifCertifId != '' "> and artif_certif_id = #{artifCertifId}</if>
+             <if test="artifNm != null  and artifNm != '' "> and artif_nm = #{artifNm}</if>
+             <if test="contactPersonNm != null  and contactPersonNm != '' "> and contact_person_nm = #{contactPersonNm}</if>
+             <if test="commAddr != null  and commAddr != '' "> and comm_addr = #{commAddr}</if>
+             <if test="zipCd != null  and zipCd != '' "> and zip_cd = #{zipCd}</if>
+             <if test="phone != null  and phone != '' "> and phone = #{phone}</if>
+             <if test="mobile != null  and mobile != '' "> and mobile = #{mobile}</if>
+             <if test="emailAddr != null  and emailAddr != '' "> and email_addr = #{emailAddr}</if>
+             <if test="faxNo != null  and faxNo != '' "> and fax_no = #{faxNo}</if>
+             <if test="cfoNm != null  and cfoNm != '' "> and cfo_nm = #{cfoNm}</if>
+             <if test="maintnCompanyTp != null  and maintnCompanyTp != '' "> and maintn_company_tp = #{maintnCompanyTp}</if>
+             <if test="regCap != null  and regCap != '' "> and reg_cap = #{regCap}</if>
+             <if test="regCaptialCurrCd != null  and regCaptialCurrCd != '' "> and reg_captial_curr_cd = #{regCaptialCurrCd}</if>
+             <if test="bussRange != null  and bussRange != '' "> and buss_range = #{bussRange}</if>
+             <if test="bussAddr != null  and bussAddr != '' "> and buss_addr = #{bussAddr}</if>
+             <if test="signIn != null  and signIn != '' "> and sign_in = #{signIn}</if>
+             <if test="enotesIn != null  and enotesIn != '' "> and enotes_in = #{enotesIn}</if>
+             <if test="settleInsTp != null  and settleInsTp != '' "> and settle_ins_tp = #{settleInsTp}</if>
+             <if test="acctInsIdCd != null  and acctInsIdCd != '' "> and acct_ins_id_cd = #{acctInsIdCd}</if>
+             <if test="mchntSettleMd != null  and mchntSettleMd != '' "> and mchnt_settle_md = #{mchntSettleMd}</if>
+             <if test="packMchntCd != null  and packMchntCd != '' "> and pack_mchnt_cd = #{packMchntCd}</if>
+             <if test="cycleSettleTp != null  and cycleSettleTp != '' "> and cycle_settle_tp = #{cycleSettleTp}</if>
+             <if test="prepayReturnTp != null  and prepayReturnTp != '' "> and prepay_return_tp = #{prepayReturnTp}</if>
+             <if test="mchntSettleIn != null  and mchntSettleIn != '' "> and mchnt_settle_in = #{mchntSettleIn}</if>
+             <if test="bankNm1 != null  and bankNm1 != '' "> and bank_nm1 = #{bankNm1}</if>
+             <if test="bankSettleNo1 != null  and bankSettleNo1 != '' "> and bank_settle_no1 = #{bankSettleNo1}</if>
+             <if test="mchntSettleBankCd != null  and mchntSettleBankCd != '' "> and mchnt_settle_bank_cd = #{mchntSettleBankCd}</if>
+             <if test="acctCurrCd1 != null  and acctCurrCd1 != '' "> and acct_curr_cd1 = #{acctCurrCd1}</if>
+             <if test="acctNm1 != null  and acctNm1 != '' "> and acct_nm1 = #{acctNm1}</if>
+             <if test="acctNo1 != null  and acctNo1 != '' "> and acct_no1 = #{acctNo1}</if>
+             <if test="specSettleIn != null  and specSettleIn != '' "> and spec_settle_in = #{specSettleIn}</if>
+             <if test="issInsIdCd != null  and issInsIdCd != '' "> and iss_ins_id_cd = #{issInsIdCd}</if>
+             <if test="specDiscTp != null  and specDiscTp != '' "> and spec_disc_tp = #{specDiscTp}</if>
+             <if test="specDiscLvl != null  and specDiscLvl != '' "> and spec_disc_lvl = #{specDiscLvl}</if>
+             <if test="allotAlgo != null  and allotAlgo != '' "> and allot_algo = #{allotAlgo}</if>
+             <if test="mchntDiscDetIndex != null  and mchntDiscDetIndex != '' "> and mchnt_disc_det_index = #{mchntDiscDetIndex}</if>
+             <if test="mcmgmAllotItemIndex != null  and mcmgmAllotItemIndex != '' "> and mcmgm_allot_item_index = #{mcmgmAllotItemIndex}</if>
+             <if test="allotRole != null  and allotRole != '' "> and allot_role = #{allotRole}</if>
+             <if test="allotInsIdCd1 != null  and allotInsIdCd1 != '' "> and allot_ins_id_cd1 = #{allotInsIdCd1}</if>
+             <if test="allotInsIdCd2 != null  and allotInsIdCd2 != '' "> and allot_ins_id_cd2 = #{allotInsIdCd2}</if>
+             <if test="allotInsIdCd3 != null  and allotInsIdCd3 != '' "> and allot_ins_id_cd3 = #{allotInsIdCd3}</if>
+             <if test="allotInsIdCd4 != null  and allotInsIdCd4 != '' "> and allot_ins_id_cd4 = #{allotInsIdCd4}</if>
+             <if test="allotInsIdCd5 != null  and allotInsIdCd5 != '' "> and allot_ins_id_cd5 = #{allotInsIdCd5}</if>
+             <if test="mchntClass != null  and mchntClass != '' "> and mchnt_class = #{mchntClass}</if>
+             <if test="rptGenInBmp != null  and rptGenInBmp != '' "> and rpt_gen_in_bmp = #{rptGenInBmp}</if>
+             <if test="insResv7 != null  and insResv7 != '' "> and ins_resv7 = #{insResv7}</if>
+             <if test="bankSettleSeq != null  and bankSettleSeq != '' "> and bank_settle_seq = #{bankSettleSeq}</if>
+             <if test="indaySettleIn != null  and indaySettleIn != '' "> and inday_settle_in = #{indaySettleIn}</if>
+             <if test="addnInf != null  and addnInf != '' "> and addn_inf = #{addnInf}</if>
+             <if test="iferrAcqPayFlag != null  and iferrAcqPayFlag != '' "> and iferr_acq_pay_flag = #{iferrAcqPayFlag}</if>
+             <if test="mchntPrioIn != null  and mchntPrioIn != '' "> and mchnt_prio_in = #{mchntPrioIn}</if>
+             <if test="indayCycleMsgNo != null  and indayCycleMsgNo != '' "> and inday_cycle_msg_no = #{indayCycleMsgNo}</if>
+             <if test="indayCycleBussTp != null  and indayCycleBussTp != '' "> and inday_cycle_buss_tp = #{indayCycleBussTp}</if>
+             <if test="enddayCycleMsgNo != null  and enddayCycleMsgNo != '' "> and endday_cycle_msg_no = #{enddayCycleMsgNo}</if>
+             <if test="enddayCycleBussTp != null  and enddayCycleBussTp != '' "> and endday_cycle_buss_tp = #{enddayCycleBussTp}</if>
+             <if test="anyCycleDbitMsgNo != null  and anyCycleDbitMsgNo != '' "> and any_cycle_dbit_msg_no = #{anyCycleDbitMsgNo}</if>
+             <if test="anyCycleDbitBussTp != null  and anyCycleDbitBussTp != '' "> and any_cycle_dbit_buss_tp = #{anyCycleDbitBussTp}</if>
+             <if test="mchntAttrBmp != null  and mchntAttrBmp != '' "> and mchnt_attr_bmp = #{mchntAttrBmp}</if>
+             <if test="feeSettleInsTp != null  and feeSettleInsTp != '' "> and fee_settle_ins_tp = #{feeSettleInsTp}</if>
+             <if test="mchntFeeBankNm != null  and mchntFeeBankNm != '' "> and mchnt_fee_bank_nm = #{mchntFeeBankNm}</if>
+             <if test="mchntFeeAcctBankCd != null  and mchntFeeAcctBankCd != '' "> and mchnt_fee_acct_bank_cd = #{mchntFeeAcctBankCd}</if>
+             <if test="mchntFeeAcct != null  and mchntFeeAcct != '' "> and mchnt_fee_acct = #{mchntFeeAcct}</if>
+             <if test="mchntFeeAcctNm != null  and mchntFeeAcctNm != '' "> and mchnt_fee_acct_nm = #{mchntFeeAcctNm}</if>
+             <if test="mchntFeeSettleBankCd != null  and mchntFeeSettleBankCd != '' "> and mchnt_fee_settle_bank_cd = #{mchntFeeSettleBankCd}</if>
+             <if test="mchntFeeAcctInsIdCd != null  and mchntFeeAcctInsIdCd != '' "> and mchnt_fee_acct_ins_id_cd = #{mchntFeeAcctInsIdCd}</if>
+             <if test="spInsIdCd != null  and spInsIdCd != '' "> and sp_ins_id_cd = #{spInsIdCd}</if>
+             <if test="industryInsIdCd != null  and industryInsIdCd != '' "> and industry_ins_id_cd = #{industryInsIdCd}</if>
+             <if test="mchntBussProcTp != null  and mchntBussProcTp != '' "> and mchnt_buss_proc_tp = #{mchntBussProcTp}</if>
+             <if test="trustAppTp != null  and trustAppTp != '' "> and trust_app_tp = #{trustAppTp}</if>
+             <if test="lateFeeCalcIn != null  and lateFeeCalcIn != '' "> and late_fee_calc_in = #{lateFeeCalcIn}</if>
+             <if test="lateFeeCalcMd != null  and lateFeeCalcMd != '' "> and late_fee_calc_md = #{lateFeeCalcMd}</if>
+             <if test="lateFeeUsrTp != null  and lateFeeUsrTp != '' "> and late_fee_usr_tp = #{lateFeeUsrTp}</if>
+             <if test="maxBillPrintNum != null  and maxBillPrintNum != '' "> and max_bill_print_num = #{maxBillPrintNum}</if>
+             <if test="fixAt != null  and fixAt != '' "> and fix_at = #{fixAt}</if>
+             <if test="lateFeeLowerLimit != null  and lateFeeLowerLimit != '' "> and late_fee_lower_limit = #{lateFeeLowerLimit}</if>
+             <if test="lateFeeHigherLimit != null  and lateFeeHigherLimit != '' "> and late_fee_higher_limit = #{lateFeeHigherLimit}</if>
+             <if test="lateFeeBaseRt != null  and lateFeeBaseRt != '' "> and late_fee_base_rt = #{lateFeeBaseRt}</if>
+             <if test="lateFeeOverYearRt != null  and lateFeeOverYearRt != '' "> and late_fee_over_year_rt = #{lateFeeOverYearRt}</if>
+             <if test="mchntSettleAttr != null  and mchntSettleAttr != '' "> and mchnt_settle_attr = #{mchntSettleAttr}</if>
+             <if test="entrustRelationIn != null  and entrustRelationIn != '' "> and entrust_relation_in = #{entrustRelationIn}</if>
+             <if test="addActEntrustIn != null  and addActEntrustIn != '' "> and add_act_entrust_in = #{addActEntrustIn}</if>
+             <if test="taxTp != null  and taxTp != '' "> and tax_tp = #{taxTp}</if>
+             <if test="settleTreBankNo != null  and settleTreBankNo != '' "> and settle_tre_bank_no = #{settleTreBankNo}</if>
+             <if test="pwdEncTp != null  and pwdEncTp != '' "> and pwd_enc_tp = #{pwdEncTp}</if>
+             <if test="pwdEncIndex != null  and pwdEncIndex != '' "> and pwd_enc_index = #{pwdEncIndex}</if>
+             <if test="chnlMchntCd != null  and chnlMchntCd != '' "> and chnl_mchnt_cd = #{chnlMchntCd}</if>
+             <if test="specChargeIn != null  and specChargeIn != '' "> and spec_charge_in = #{specChargeIn}</if>
+             <if test="allotIn != null  and allotIn != '' "> and allot_in = #{allotIn}</if>
+             <if test="svcNetUrl != null  and svcNetUrl != '' "> and svc_net_url = #{svcNetUrl}</if>
+             <if test="mchntWebSiteNm != null  and mchntWebSiteNm != '' "> and mchnt_web_site_nm = #{mchntWebSiteNm}</if>
+             <if test="bussTp != null  and bussTp != '' "> and buss_tp = #{bussTp}</if>
+             <if test="prodFunc != null  and prodFunc != '' "> and prod_func = #{prodFunc}</if>
+             <if test="ebussTp != null  and ebussTp != '' "> and ebuss_tp = #{ebussTp}</if>
+             <if test="prodFuncDesc != null  and prodFuncDesc != '' "> and prod_func_desc = #{prodFuncDesc}</if>
+             <if test="singleAtLimit != null  and singleAtLimit != '' "> and single_at_limit = #{singleAtLimit}</if>
+             <if test="singleAtLimitDesc != null  and singleAtLimitDesc != '' "> and single_at_limit_desc = #{singleAtLimitDesc}</if>
+             <if test="singleCardDayAtLimit != null  and singleCardDayAtLimit != '' "> and single_card_day_at_limit = #{singleCardDayAtLimit}</if>
+             <if test="singleCardDayAtLimitDesc != null  and singleCardDayAtLimitDesc != '' "> and single_card_day_at_limit_desc = #{singleCardDayAtLimitDesc}</if>
+             <if test="bussCont1 != null  and bussCont1 != '' "> and buss_cont1 = #{bussCont1}</if>
+             <if test="bussCont1Tel != null  and bussCont1Tel != '' "> and buss_cont1_tel = #{bussCont1Tel}</if>
+             <if test="bussCont1Cell != null  and bussCont1Cell != '' "> and buss_cont1_cell = #{bussCont1Cell}</if>
+             <if test="bussCont1Email != null  and bussCont1Email != '' "> and buss_cont1_email = #{bussCont1Email}</if>
+             <if test="bussCont2 != null  and bussCont2 != '' "> and buss_cont2 = #{bussCont2}</if>
+             <if test="bussCont2Tel != null  and bussCont2Tel != '' "> and buss_cont2_tel = #{bussCont2Tel}</if>
+             <if test="bussCont2Cell != null  and bussCont2Cell != '' "> and buss_cont2_cell = #{bussCont2Cell}</if>
+             <if test="bussCont2Email != null  and bussCont2Email != '' "> and buss_cont2_email = #{bussCont2Email}</if>
+             <if test="cupBranchResv10 != null  and cupBranchResv10 != '' "> and cup_branch_resv10 = #{cupBranchResv10}</if>
+             <if test="cupBranchResv9 != null  and cupBranchResv9 != '' "> and cup_branch_resv9 = #{cupBranchResv9}</if>
+             <if test="cycleMchntIn != null  and cycleMchntIn != '' "> and cycle_mchnt_in = #{cycleMchntIn}</if>
+             <if test="mchntTransTp != null  and mchntTransTp != '' "> and mchnt_trans_tp = #{mchntTransTp}</if>
+             <if test="frnAcqInsIdCd != null  and frnAcqInsIdCd != '' "> and frn_acq_ins_id_cd = #{frnAcqInsIdCd}</if>
+             <if test="insResv8 != null  and insResv8 != '' "> and ins_resv8 = #{insResv8}</if>
+             <if test="svcFeeIn != null  and svcFeeIn != '' "> and svc_fee_in = #{svcFeeIn}</if>
+             <if test="instlIn != null  and instlIn != '' "> and instl_in = #{instlIn}</if>
+             <if test="callCenterPhone != null  and callCenterPhone != '' "> and call_center_phone = #{callCenterPhone}</if>
+             <if test="mchntLvl != null  and mchntLvl != '' "> and mchnt_lvl = #{mchntLvl}</if>
+             <if test="posNum != null  and posNum != '' "> and pos_num = #{posNum}</if>
+             <if test="casherNum != null  and casherNum != '' "> and casher_num = #{casherNum}</if>
+             <if test="mchntOpenDt != null  and mchntOpenDt != '' "> and mchnt_open_dt = #{mchntOpenDt}</if>
+             <if test="constrQuitDt != null  and constrQuitDt != '' "> and constr_quit_dt = #{constrQuitDt}</if>
+             <if test="transChnl != null  and transChnl != '' "> and trans_chnl = #{transChnl}</if>
+             <if test="constrQuitRsnCd != null  and constrQuitRsnCd != '' "> and constr_quit_rsn_cd = #{constrQuitRsnCd}</if>
+             <if test="remark != null  and remark != '' "> and remark = #{remark}</if>
+             <if test="cupBranchSpecFld != null  and cupBranchSpecFld != '' "> and cup_branch_spec_fld = #{cupBranchSpecFld}</if>
+             <if test="insResv1 != null  and insResv1 != '' "> and ins_resv1 = #{insResv1}</if>
+             <if test="insResv2 != null  and insResv2 != '' "> and ins_resv2 = #{insResv2}</if>
+             <if test="insResv3 != null  and insResv3 != '' "> and ins_resv3 = #{insResv3}</if>
+             <if test="insResv4 != null  and insResv4 != '' "> and ins_resv4 = #{insResv4}</if>
+             <if test="insResv5 != null  and insResv5 != '' "> and ins_resv5 = #{insResv5}</if>
+             <if test="insResv6 != null  and insResv6 != '' "> and ins_resv6 = #{insResv6}</if>
+             <if test="insResv9 != null  and insResv9 != '' "> and ins_resv9 = #{insResv9}</if>
+             <if test="insResv10 != null  and insResv10 != '' "> and ins_resv10 = #{insResv10}</if>
+             <if test="cupBranchResv1 != null  and cupBranchResv1 != '' "> and cup_branch_resv1 = #{cupBranchResv1}</if>
+             <if test="cupBranchResv2 != null  and cupBranchResv2 != '' "> and cup_branch_resv2 = #{cupBranchResv2}</if>
+             <if test="cupBranchResv3 != null  and cupBranchResv3 != '' "> and cup_branch_resv3 = #{cupBranchResv3}</if>
+             <if test="cupBranchResv4 != null  and cupBranchResv4 != '' "> and cup_branch_resv4 = #{cupBranchResv4}</if>
+             <if test="cupBranchResv5 != null  and cupBranchResv5 != '' "> and cup_branch_resv5 = #{cupBranchResv5}</if>
+             <if test="cupBranchResv6 != null  and cupBranchResv6 != '' "> and cup_branch_resv6 = #{cupBranchResv6}</if>
+             <if test="cupBranchResv7 != null  and cupBranchResv7 != '' "> and cup_branch_resv7 = #{cupBranchResv7}</if>
+             <if test="cupBranchResv8 != null  and cupBranchResv8 != '' "> and cup_branch_resv8 = #{cupBranchResv8}</if>
+             <if test="cupHdqrsResv1 != null  and cupHdqrsResv1 != '' "> and cup_hdqrs_resv1 = #{cupHdqrsResv1}</if>
+             <if test="cupHdqrsResv2 != null  and cupHdqrsResv2 != '' "> and cup_hdqrs_resv2 = #{cupHdqrsResv2}</if>
+             <if test="cupHdqrsResv3 != null  and cupHdqrsResv3 != '' "> and cup_hdqrs_resv3 = #{cupHdqrsResv3}</if>
+             <if test="cupHdqrsResv4 != null  and cupHdqrsResv4 != '' "> and cup_hdqrs_resv4 = #{cupHdqrsResv4}</if>
+             <if test="mchntNegActIn != null  and mchntNegActIn != '' "> and mchnt_neg_act_in = #{mchntNegActIn}</if>
+             <if test="riskArtifIn != null  and riskArtifIn != '' "> and risk_artif_in = #{riskArtifIn}</if>
+             <if test="riskMchntIn != null  and riskMchntIn != '' "> and risk_mchnt_in = #{riskMchntIn}</if>
+             <if test="susMchntIn != null  and susMchntIn != '' "> and sus_mchnt_in = #{susMchntIn}</if>
+             <if test="hdqrsBranchIn != null  and hdqrsBranchIn != '' "> and hdqrs_branch_in = #{hdqrsBranchIn}</if>
+             <if test="hdqrsMchntCd != null  and hdqrsMchntCd != '' "> and hdqrs_mchnt_cd = #{hdqrsMchntCd}</if>
+             <if test="recnclTp != null  and recnclTp != '' "> and recncl_tp = #{recnclTp}</if>
+             <if test="netMchntSvcTp != null  and netMchntSvcTp != '' "> and net_mchnt_svc_tp = #{netMchntSvcTp}</if>
+             <if test="principalNm != null  and principalNm != '' "> and principal_nm = #{principalNm}</if>
+             <if test="submchntIn != null  and submchntIn != '' "> and submchnt_in = #{submchntIn}</if>
+             <if test="svcInsNm != null  and svcInsNm != '' "> and svc_ins_nm = #{svcInsNm}</if>
+             <if test="cooking != null  and cooking != '' "> and cooking = #{cooking}</if>
+             <if test="mchntIcp != null  and mchntIcp != '' "> and mchnt_icp = #{mchntIcp}</if>
+             <if test="trafficLine != null  and trafficLine != '' "> and traffic_line = #{trafficLine}</if>
+             <if test="directAcqSettleIn != null  and directAcqSettleIn != '' "> and direct_acq_settle_in = #{directAcqSettleIn}</if>
+             <if test="nmAddr != null  and nmAddr != '' "> and nm_addr = #{nmAddr}</if>
+             <if test="allotCd != null  and allotCd != '' "> and allot_cd = #{allotCd}</if>
+             <if test="mccApplRule != null  and mccApplRule != '' "> and mcc_appl_rule = #{mccApplRule}</if>
+             <if test="masterPwd != null  and masterPwd != '' "> and master_pwd = #{masterPwd}</if>
+             <if test="mccApplRsnCd != null  and mccApplRsnCd != '' "> and mcc_appl_rsn_cd = #{mccApplRsnCd}</if>
+             <if test="specFeeStdDesc != null  and specFeeStdDesc != '' "> and spec_fee_std_desc = #{specFeeStdDesc}</if>
+             <if test="nmAddr1 != null  and nmAddr1 != '' "> and nm_addr1 = #{nmAddr1}</if>
+         </where>
+    </select>
+    
+    <select id="selectCupMerchantInfoById" parameterType="String" resultMap="CupMerchantInfoResult">
+        <include refid="selectCupMerchantInfoVo"/>
+        where mchnt_cd = #{mchntCd}
+    </select>
+        
+    <insert id="insertCupMerchantInfo" parameterType="com.unionpay.dao.model.CupMerchantInfo">
+        insert into cup_merchant_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="mchntCd != null  and mchntCd != ''  ">mchnt_cd,</if>
+			<if test="mchntSvcTp != null  and mchntSvcTp != ''  ">mchnt_svc_tp,</if>
+			<if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">cup_branch_ins_id_cd,</if>
+			<if test="mchntCnNm != null  and mchntCnNm != ''  ">mchnt_cn_nm,</if>
+			<if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">mchnt_cn_abbr,</if>
+			<if test="acqInsIdCd != null  and acqInsIdCd != ''  ">acq_ins_id_cd,</if>
+			<if test="acptInsIdCd != null  and acptInsIdCd != ''  ">acpt_ins_id_cd,</if>
+			<if test="platInsIdCd != null  and platInsIdCd != ''  ">plat_ins_id_cd,</if>
+			<if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">acq_access_ins_id_cd,</if>
+			<if test="cntryCd != null  and cntryCd != ''  ">cntry_cd,</if>
+			<if test="gbRegionCd != null  and gbRegionCd != ''  ">gb_region_cd,</if>
+			<if test="acqRegionCd != null  and acqRegionCd != ''  ">acq_region_cd,</if>
+			<if test="mchntTp != null  and mchntTp != ''  ">mchnt_tp,</if>
+			<if test="regionCd != null  and regionCd != ''  ">region_cd,</if>
+			<if test="realMchntTp != null  and realMchntTp != ''  ">real_mchnt_tp,</if>
+			<if test="mchntGrp != null  and mchntGrp != ''  ">mchnt_grp,</if>
+			<if test="mchntSt != null  and mchntSt != ''  ">mchnt_st,</if>
+			<if test="industryTp != null  and industryTp != ''  ">industry_tp,</if>
+			<if test="cardAccptNmAddr != null  and cardAccptNmAddr != ''  ">card_accpt_nm_addr,</if>
+			<if test="mchntEnNm != null  and mchntEnNm != ''  ">mchnt_en_nm,</if>
+			<if test="mchntEnAbbr != null  and mchntEnAbbr != ''  ">mchnt_en_abbr,</if>
+			<if test="resvFld2 != null  and resvFld2 != ''  ">resv_fld2,</if>
+			<if test="connMd != null  and connMd != ''  ">conn_md,</if>
+			<if test="misMchntIn != null  and misMchntIn != ''  ">mis_mchnt_in,</if>
+			<if test="mchntAcptCurrBmp != null  and mchntAcptCurrBmp != ''  ">mchnt_acpt_curr_bmp,</if>
+			<if test="mchntDftCurrCd != null  and mchntDftCurrCd != ''  ">mchnt_dft_curr_cd,</if>
+			<if test="licNo != null  and licNo != ''  ">lic_no,</if>
+			<if test="licExpireDt != null  and licExpireDt != ''  ">lic_expire_dt,</if>
+			<if test="issOrgan != null  and issOrgan != ''  ">iss_organ,</if>
+			<if test="regAddr != null  and regAddr != ''  ">reg_addr,</if>
+			<if test="reveRegCd != null  and reveRegCd != ''  ">reve_reg_cd,</if>
+			<if test="etpsAttr != null  and etpsAttr != ''  ">etps_attr,</if>
+			<if test="corpId != null  and corpId != ''  ">corp_id,</if>
+			<if test="artifCertifTp != null  and artifCertifTp != ''  ">artif_certif_tp,</if>
+			<if test="artifCertifId != null  and artifCertifId != ''  ">artif_certif_id,</if>
+			<if test="artifNm != null  and artifNm != ''  ">artif_nm,</if>
+			<if test="contactPersonNm != null  and contactPersonNm != ''  ">contact_person_nm,</if>
+			<if test="commAddr != null  and commAddr != ''  ">comm_addr,</if>
+			<if test="zipCd != null  and zipCd != ''  ">zip_cd,</if>
+			<if test="phone != null  and phone != ''  ">phone,</if>
+			<if test="mobile != null  and mobile != ''  ">mobile,</if>
+			<if test="emailAddr != null  and emailAddr != ''  ">email_addr,</if>
+			<if test="faxNo != null  and faxNo != ''  ">fax_no,</if>
+			<if test="cfoNm != null  and cfoNm != ''  ">cfo_nm,</if>
+			<if test="maintnCompanyTp != null  and maintnCompanyTp != ''  ">maintn_company_tp,</if>
+			<if test="regCap != null  and regCap != ''  ">reg_cap,</if>
+			<if test="regCaptialCurrCd != null  and regCaptialCurrCd != ''  ">reg_captial_curr_cd,</if>
+			<if test="bussRange != null  and bussRange != ''  ">buss_range,</if>
+			<if test="bussAddr != null  and bussAddr != ''  ">buss_addr,</if>
+			<if test="signIn != null  and signIn != ''  ">sign_in,</if>
+			<if test="enotesIn != null  and enotesIn != ''  ">enotes_in,</if>
+			<if test="settleInsTp != null  and settleInsTp != ''  ">settle_ins_tp,</if>
+			<if test="acctInsIdCd != null  and acctInsIdCd != ''  ">acct_ins_id_cd,</if>
+			<if test="mchntSettleMd != null  and mchntSettleMd != ''  ">mchnt_settle_md,</if>
+			<if test="packMchntCd != null  and packMchntCd != ''  ">pack_mchnt_cd,</if>
+			<if test="cycleSettleTp != null  and cycleSettleTp != ''  ">cycle_settle_tp,</if>
+			<if test="prepayReturnTp != null  and prepayReturnTp != ''  ">prepay_return_tp,</if>
+			<if test="mchntSettleIn != null  and mchntSettleIn != ''  ">mchnt_settle_in,</if>
+			<if test="bankNm1 != null  and bankNm1 != ''  ">bank_nm1,</if>
+			<if test="bankSettleNo1 != null  and bankSettleNo1 != ''  ">bank_settle_no1,</if>
+			<if test="mchntSettleBankCd != null  and mchntSettleBankCd != ''  ">mchnt_settle_bank_cd,</if>
+			<if test="acctCurrCd1 != null  and acctCurrCd1 != ''  ">acct_curr_cd1,</if>
+			<if test="acctNm1 != null  and acctNm1 != ''  ">acct_nm1,</if>
+			<if test="acctNo1 != null  and acctNo1 != ''  ">acct_no1,</if>
+			<if test="specSettleIn != null  and specSettleIn != ''  ">spec_settle_in,</if>
+			<if test="issInsIdCd != null  and issInsIdCd != ''  ">iss_ins_id_cd,</if>
+			<if test="specDiscTp != null  and specDiscTp != ''  ">spec_disc_tp,</if>
+			<if test="specDiscLvl != null  and specDiscLvl != ''  ">spec_disc_lvl,</if>
+			<if test="allotAlgo != null  and allotAlgo != ''  ">allot_algo,</if>
+			<if test="mchntDiscDetIndex != null  and mchntDiscDetIndex != ''  ">mchnt_disc_det_index,</if>
+			<if test="mcmgmAllotItemIndex != null  and mcmgmAllotItemIndex != ''  ">mcmgm_allot_item_index,</if>
+			<if test="allotRole != null  and allotRole != ''  ">allot_role,</if>
+			<if test="allotInsIdCd1 != null  and allotInsIdCd1 != ''  ">allot_ins_id_cd1,</if>
+			<if test="allotInsIdCd2 != null  and allotInsIdCd2 != ''  ">allot_ins_id_cd2,</if>
+			<if test="allotInsIdCd3 != null  and allotInsIdCd3 != ''  ">allot_ins_id_cd3,</if>
+			<if test="allotInsIdCd4 != null  and allotInsIdCd4 != ''  ">allot_ins_id_cd4,</if>
+			<if test="allotInsIdCd5 != null  and allotInsIdCd5 != ''  ">allot_ins_id_cd5,</if>
+			<if test="mchntClass != null  and mchntClass != ''  ">mchnt_class,</if>
+			<if test="rptGenInBmp != null  and rptGenInBmp != ''  ">rpt_gen_in_bmp,</if>
+			<if test="insResv7 != null  and insResv7 != ''  ">ins_resv7,</if>
+			<if test="bankSettleSeq != null  and bankSettleSeq != ''  ">bank_settle_seq,</if>
+			<if test="indaySettleIn != null  and indaySettleIn != ''  ">inday_settle_in,</if>
+			<if test="addnInf != null  and addnInf != ''  ">addn_inf,</if>
+			<if test="iferrAcqPayFlag != null  and iferrAcqPayFlag != ''  ">iferr_acq_pay_flag,</if>
+			<if test="mchntPrioIn != null  and mchntPrioIn != ''  ">mchnt_prio_in,</if>
+			<if test="indayCycleMsgNo != null  and indayCycleMsgNo != ''  ">inday_cycle_msg_no,</if>
+			<if test="indayCycleBussTp != null  and indayCycleBussTp != ''  ">inday_cycle_buss_tp,</if>
+			<if test="enddayCycleMsgNo != null  and enddayCycleMsgNo != ''  ">endday_cycle_msg_no,</if>
+			<if test="enddayCycleBussTp != null  and enddayCycleBussTp != ''  ">endday_cycle_buss_tp,</if>
+			<if test="anyCycleDbitMsgNo != null  and anyCycleDbitMsgNo != ''  ">any_cycle_dbit_msg_no,</if>
+			<if test="anyCycleDbitBussTp != null  and anyCycleDbitBussTp != ''  ">any_cycle_dbit_buss_tp,</if>
+			<if test="mchntAttrBmp != null  and mchntAttrBmp != ''  ">mchnt_attr_bmp,</if>
+			<if test="feeSettleInsTp != null  and feeSettleInsTp != ''  ">fee_settle_ins_tp,</if>
+			<if test="mchntFeeBankNm != null  and mchntFeeBankNm != ''  ">mchnt_fee_bank_nm,</if>
+			<if test="mchntFeeAcctBankCd != null  and mchntFeeAcctBankCd != ''  ">mchnt_fee_acct_bank_cd,</if>
+			<if test="mchntFeeAcct != null  and mchntFeeAcct != ''  ">mchnt_fee_acct,</if>
+			<if test="mchntFeeAcctNm != null  and mchntFeeAcctNm != ''  ">mchnt_fee_acct_nm,</if>
+			<if test="mchntFeeSettleBankCd != null  and mchntFeeSettleBankCd != ''  ">mchnt_fee_settle_bank_cd,</if>
+			<if test="mchntFeeAcctInsIdCd != null  and mchntFeeAcctInsIdCd != ''  ">mchnt_fee_acct_ins_id_cd,</if>
+			<if test="spInsIdCd != null  and spInsIdCd != ''  ">sp_ins_id_cd,</if>
+			<if test="industryInsIdCd != null  and industryInsIdCd != ''  ">industry_ins_id_cd,</if>
+			<if test="mchntBussProcTp != null  and mchntBussProcTp != ''  ">mchnt_buss_proc_tp,</if>
+			<if test="trustAppTp != null  and trustAppTp != ''  ">trust_app_tp,</if>
+			<if test="lateFeeCalcIn != null  and lateFeeCalcIn != ''  ">late_fee_calc_in,</if>
+			<if test="lateFeeCalcMd != null  and lateFeeCalcMd != ''  ">late_fee_calc_md,</if>
+			<if test="lateFeeUsrTp != null  and lateFeeUsrTp != ''  ">late_fee_usr_tp,</if>
+			<if test="maxBillPrintNum != null  and maxBillPrintNum != ''  ">max_bill_print_num,</if>
+			<if test="fixAt != null  and fixAt != ''  ">fix_at,</if>
+			<if test="lateFeeLowerLimit != null  and lateFeeLowerLimit != ''  ">late_fee_lower_limit,</if>
+			<if test="lateFeeHigherLimit != null  and lateFeeHigherLimit != ''  ">late_fee_higher_limit,</if>
+			<if test="lateFeeBaseRt != null  and lateFeeBaseRt != ''  ">late_fee_base_rt,</if>
+			<if test="lateFeeOverYearRt != null  and lateFeeOverYearRt != ''  ">late_fee_over_year_rt,</if>
+			<if test="mchntSettleAttr != null  and mchntSettleAttr != ''  ">mchnt_settle_attr,</if>
+			<if test="entrustRelationIn != null  and entrustRelationIn != ''  ">entrust_relation_in,</if>
+			<if test="addActEntrustIn != null  and addActEntrustIn != ''  ">add_act_entrust_in,</if>
+			<if test="taxTp != null  and taxTp != ''  ">tax_tp,</if>
+			<if test="settleTreBankNo != null  and settleTreBankNo != ''  ">settle_tre_bank_no,</if>
+			<if test="pwdEncTp != null  and pwdEncTp != ''  ">pwd_enc_tp,</if>
+			<if test="pwdEncIndex != null  and pwdEncIndex != ''  ">pwd_enc_index,</if>
+			<if test="chnlMchntCd != null  and chnlMchntCd != ''  ">chnl_mchnt_cd,</if>
+			<if test="specChargeIn != null  and specChargeIn != ''  ">spec_charge_in,</if>
+			<if test="allotIn != null  and allotIn != ''  ">allot_in,</if>
+			<if test="svcNetUrl != null  and svcNetUrl != ''  ">svc_net_url,</if>
+			<if test="mchntWebSiteNm != null  and mchntWebSiteNm != ''  ">mchnt_web_site_nm,</if>
+			<if test="bussTp != null  and bussTp != ''  ">buss_tp,</if>
+			<if test="prodFunc != null  and prodFunc != ''  ">prod_func,</if>
+			<if test="ebussTp != null  and ebussTp != ''  ">ebuss_tp,</if>
+			<if test="prodFuncDesc != null  and prodFuncDesc != ''  ">prod_func_desc,</if>
+			<if test="singleAtLimit != null  and singleAtLimit != ''  ">single_at_limit,</if>
+			<if test="singleAtLimitDesc != null  and singleAtLimitDesc != ''  ">single_at_limit_desc,</if>
+			<if test="singleCardDayAtLimit != null  and singleCardDayAtLimit != ''  ">single_card_day_at_limit,</if>
+			<if test="singleCardDayAtLimitDesc != null  and singleCardDayAtLimitDesc != ''  ">single_card_day_at_limit_desc,</if>
+			<if test="bussCont1 != null  and bussCont1 != ''  ">buss_cont1,</if>
+			<if test="bussCont1Tel != null  and bussCont1Tel != ''  ">buss_cont1_tel,</if>
+			<if test="bussCont1Cell != null  and bussCont1Cell != ''  ">buss_cont1_cell,</if>
+			<if test="bussCont1Email != null  and bussCont1Email != ''  ">buss_cont1_email,</if>
+			<if test="bussCont2 != null  and bussCont2 != ''  ">buss_cont2,</if>
+			<if test="bussCont2Tel != null  and bussCont2Tel != ''  ">buss_cont2_tel,</if>
+			<if test="bussCont2Cell != null  and bussCont2Cell != ''  ">buss_cont2_cell,</if>
+			<if test="bussCont2Email != null  and bussCont2Email != ''  ">buss_cont2_email,</if>
+			<if test="cupBranchResv10 != null  and cupBranchResv10 != ''  ">cup_branch_resv10,</if>
+			<if test="cupBranchResv9 != null  and cupBranchResv9 != ''  ">cup_branch_resv9,</if>
+			<if test="cycleMchntIn != null  and cycleMchntIn != ''  ">cycle_mchnt_in,</if>
+			<if test="mchntTransTp != null  and mchntTransTp != ''  ">mchnt_trans_tp,</if>
+			<if test="frnAcqInsIdCd != null  and frnAcqInsIdCd != ''  ">frn_acq_ins_id_cd,</if>
+			<if test="insResv8 != null  and insResv8 != ''  ">ins_resv8,</if>
+			<if test="svcFeeIn != null  and svcFeeIn != ''  ">svc_fee_in,</if>
+			<if test="instlIn != null  and instlIn != ''  ">instl_in,</if>
+			<if test="callCenterPhone != null  and callCenterPhone != ''  ">call_center_phone,</if>
+			<if test="mchntLvl != null  and mchntLvl != ''  ">mchnt_lvl,</if>
+			<if test="posNum != null  and posNum != ''  ">pos_num,</if>
+			<if test="casherNum != null  and casherNum != ''  ">casher_num,</if>
+			<if test="mchntOpenDt != null  and mchntOpenDt != ''  ">mchnt_open_dt,</if>
+			<if test="constrQuitDt != null  and constrQuitDt != ''  ">constr_quit_dt,</if>
+			<if test="transChnl != null  and transChnl != ''  ">trans_chnl,</if>
+			<if test="constrQuitRsnCd != null  and constrQuitRsnCd != ''  ">constr_quit_rsn_cd,</if>
+			<if test="remark != null  and remark != ''  ">remark,</if>
+			<if test="cupBranchSpecFld != null  and cupBranchSpecFld != ''  ">cup_branch_spec_fld,</if>
+			<if test="insResv1 != null  and insResv1 != ''  ">ins_resv1,</if>
+			<if test="insResv2 != null  and insResv2 != ''  ">ins_resv2,</if>
+			<if test="insResv3 != null  and insResv3 != ''  ">ins_resv3,</if>
+			<if test="insResv4 != null  and insResv4 != ''  ">ins_resv4,</if>
+			<if test="insResv5 != null  and insResv5 != ''  ">ins_resv5,</if>
+			<if test="insResv6 != null  and insResv6 != ''  ">ins_resv6,</if>
+			<if test="insResv9 != null  and insResv9 != ''  ">ins_resv9,</if>
+			<if test="insResv10 != null  and insResv10 != ''  ">ins_resv10,</if>
+			<if test="cupBranchResv1 != null  and cupBranchResv1 != ''  ">cup_branch_resv1,</if>
+			<if test="cupBranchResv2 != null  and cupBranchResv2 != ''  ">cup_branch_resv2,</if>
+			<if test="cupBranchResv3 != null  and cupBranchResv3 != ''  ">cup_branch_resv3,</if>
+			<if test="cupBranchResv4 != null  and cupBranchResv4 != ''  ">cup_branch_resv4,</if>
+			<if test="cupBranchResv5 != null  and cupBranchResv5 != ''  ">cup_branch_resv5,</if>
+			<if test="cupBranchResv6 != null  and cupBranchResv6 != ''  ">cup_branch_resv6,</if>
+			<if test="cupBranchResv7 != null  and cupBranchResv7 != ''  ">cup_branch_resv7,</if>
+			<if test="cupBranchResv8 != null  and cupBranchResv8 != ''  ">cup_branch_resv8,</if>
+			<if test="cupHdqrsResv1 != null  and cupHdqrsResv1 != ''  ">cup_hdqrs_resv1,</if>
+			<if test="cupHdqrsResv2 != null  and cupHdqrsResv2 != ''  ">cup_hdqrs_resv2,</if>
+			<if test="cupHdqrsResv3 != null  and cupHdqrsResv3 != ''  ">cup_hdqrs_resv3,</if>
+			<if test="cupHdqrsResv4 != null  and cupHdqrsResv4 != ''  ">cup_hdqrs_resv4,</if>
+			<if test="mchntNegActIn != null  and mchntNegActIn != ''  ">mchnt_neg_act_in,</if>
+			<if test="riskArtifIn != null  and riskArtifIn != ''  ">risk_artif_in,</if>
+			<if test="riskMchntIn != null  and riskMchntIn != ''  ">risk_mchnt_in,</if>
+			<if test="susMchntIn != null  and susMchntIn != ''  ">sus_mchnt_in,</if>
+			<if test="hdqrsBranchIn != null  and hdqrsBranchIn != ''  ">hdqrs_branch_in,</if>
+			<if test="hdqrsMchntCd != null  and hdqrsMchntCd != ''  ">hdqrs_mchnt_cd,</if>
+			<if test="recnclTp != null  and recnclTp != ''  ">recncl_tp,</if>
+			<if test="netMchntSvcTp != null  and netMchntSvcTp != ''  ">net_mchnt_svc_tp,</if>
+			<if test="principalNm != null  and principalNm != ''  ">principal_nm,</if>
+			<if test="submchntIn != null  and submchntIn != ''  ">submchnt_in,</if>
+			<if test="svcInsNm != null  and svcInsNm != ''  ">svc_ins_nm,</if>
+			<if test="cooking != null  and cooking != ''  ">cooking,</if>
+			<if test="mchntIcp != null  and mchntIcp != ''  ">mchnt_icp,</if>
+			<if test="trafficLine != null  and trafficLine != ''  ">traffic_line,</if>
+			<if test="directAcqSettleIn != null  and directAcqSettleIn != ''  ">direct_acq_settle_in,</if>
+			<if test="nmAddr != null  and nmAddr != ''  ">nm_addr,</if>
+			<if test="allotCd != null  and allotCd != ''  ">allot_cd,</if>
+			<if test="mccApplRule != null  and mccApplRule != ''  ">mcc_appl_rule,</if>
+			<if test="masterPwd != null  and masterPwd != ''  ">master_pwd,</if>
+			<if test="mccApplRsnCd != null  and mccApplRsnCd != ''  ">mcc_appl_rsn_cd,</if>
+			<if test="specFeeStdDesc != null  and specFeeStdDesc != ''  ">spec_fee_std_desc,</if>
+			<if test="nmAddr1 != null  and nmAddr1 != ''  ">nm_addr1,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="mchntCd != null  and mchntCd != ''  ">#{mchntCd},</if>
+			<if test="mchntSvcTp != null  and mchntSvcTp != ''  ">#{mchntSvcTp},</if>
+			<if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">#{cupBranchInsIdCd},</if>
+			<if test="mchntCnNm != null  and mchntCnNm != ''  ">#{mchntCnNm},</if>
+			<if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">#{mchntCnAbbr},</if>
+			<if test="acqInsIdCd != null  and acqInsIdCd != ''  ">#{acqInsIdCd},</if>
+			<if test="acptInsIdCd != null  and acptInsIdCd != ''  ">#{acptInsIdCd},</if>
+			<if test="platInsIdCd != null  and platInsIdCd != ''  ">#{platInsIdCd},</if>
+			<if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">#{acqAccessInsIdCd},</if>
+			<if test="cntryCd != null  and cntryCd != ''  ">#{cntryCd},</if>
+			<if test="gbRegionCd != null  and gbRegionCd != ''  ">#{gbRegionCd},</if>
+			<if test="acqRegionCd != null  and acqRegionCd != ''  ">#{acqRegionCd},</if>
+			<if test="mchntTp != null  and mchntTp != ''  ">#{mchntTp},</if>
+			<if test="regionCd != null  and regionCd != ''  ">#{regionCd},</if>
+			<if test="realMchntTp != null  and realMchntTp != ''  ">#{realMchntTp},</if>
+			<if test="mchntGrp != null  and mchntGrp != ''  ">#{mchntGrp},</if>
+			<if test="mchntSt != null  and mchntSt != ''  ">#{mchntSt},</if>
+			<if test="industryTp != null  and industryTp != ''  ">#{industryTp},</if>
+			<if test="cardAccptNmAddr != null  and cardAccptNmAddr != ''  ">#{cardAccptNmAddr},</if>
+			<if test="mchntEnNm != null  and mchntEnNm != ''  ">#{mchntEnNm},</if>
+			<if test="mchntEnAbbr != null  and mchntEnAbbr != ''  ">#{mchntEnAbbr},</if>
+			<if test="resvFld2 != null  and resvFld2 != ''  ">#{resvFld2},</if>
+			<if test="connMd != null  and connMd != ''  ">#{connMd},</if>
+			<if test="misMchntIn != null  and misMchntIn != ''  ">#{misMchntIn},</if>
+			<if test="mchntAcptCurrBmp != null  and mchntAcptCurrBmp != ''  ">#{mchntAcptCurrBmp},</if>
+			<if test="mchntDftCurrCd != null  and mchntDftCurrCd != ''  ">#{mchntDftCurrCd},</if>
+			<if test="licNo != null  and licNo != ''  ">#{licNo},</if>
+			<if test="licExpireDt != null  and licExpireDt != ''  ">#{licExpireDt},</if>
+			<if test="issOrgan != null  and issOrgan != ''  ">#{issOrgan},</if>
+			<if test="regAddr != null  and regAddr != ''  ">#{regAddr},</if>
+			<if test="reveRegCd != null  and reveRegCd != ''  ">#{reveRegCd},</if>
+			<if test="etpsAttr != null  and etpsAttr != ''  ">#{etpsAttr},</if>
+			<if test="corpId != null  and corpId != ''  ">#{corpId},</if>
+			<if test="artifCertifTp != null  and artifCertifTp != ''  ">#{artifCertifTp},</if>
+			<if test="artifCertifId != null  and artifCertifId != ''  ">#{artifCertifId},</if>
+			<if test="artifNm != null  and artifNm != ''  ">#{artifNm},</if>
+			<if test="contactPersonNm != null  and contactPersonNm != ''  ">#{contactPersonNm},</if>
+			<if test="commAddr != null  and commAddr != ''  ">#{commAddr},</if>
+			<if test="zipCd != null  and zipCd != ''  ">#{zipCd},</if>
+			<if test="phone != null  and phone != ''  ">#{phone},</if>
+			<if test="mobile != null  and mobile != ''  ">#{mobile},</if>
+			<if test="emailAddr != null  and emailAddr != ''  ">#{emailAddr},</if>
+			<if test="faxNo != null  and faxNo != ''  ">#{faxNo},</if>
+			<if test="cfoNm != null  and cfoNm != ''  ">#{cfoNm},</if>
+			<if test="maintnCompanyTp != null  and maintnCompanyTp != ''  ">#{maintnCompanyTp},</if>
+			<if test="regCap != null  and regCap != ''  ">#{regCap},</if>
+			<if test="regCaptialCurrCd != null  and regCaptialCurrCd != ''  ">#{regCaptialCurrCd},</if>
+			<if test="bussRange != null  and bussRange != ''  ">#{bussRange},</if>
+			<if test="bussAddr != null  and bussAddr != ''  ">#{bussAddr},</if>
+			<if test="signIn != null  and signIn != ''  ">#{signIn},</if>
+			<if test="enotesIn != null  and enotesIn != ''  ">#{enotesIn},</if>
+			<if test="settleInsTp != null  and settleInsTp != ''  ">#{settleInsTp},</if>
+			<if test="acctInsIdCd != null  and acctInsIdCd != ''  ">#{acctInsIdCd},</if>
+			<if test="mchntSettleMd != null  and mchntSettleMd != ''  ">#{mchntSettleMd},</if>
+			<if test="packMchntCd != null  and packMchntCd != ''  ">#{packMchntCd},</if>
+			<if test="cycleSettleTp != null  and cycleSettleTp != ''  ">#{cycleSettleTp},</if>
+			<if test="prepayReturnTp != null  and prepayReturnTp != ''  ">#{prepayReturnTp},</if>
+			<if test="mchntSettleIn != null  and mchntSettleIn != ''  ">#{mchntSettleIn},</if>
+			<if test="bankNm1 != null  and bankNm1 != ''  ">#{bankNm1},</if>
+			<if test="bankSettleNo1 != null  and bankSettleNo1 != ''  ">#{bankSettleNo1},</if>
+			<if test="mchntSettleBankCd != null  and mchntSettleBankCd != ''  ">#{mchntSettleBankCd},</if>
+			<if test="acctCurrCd1 != null  and acctCurrCd1 != ''  ">#{acctCurrCd1},</if>
+			<if test="acctNm1 != null  and acctNm1 != ''  ">#{acctNm1},</if>
+			<if test="acctNo1 != null  and acctNo1 != ''  ">#{acctNo1},</if>
+			<if test="specSettleIn != null  and specSettleIn != ''  ">#{specSettleIn},</if>
+			<if test="issInsIdCd != null  and issInsIdCd != ''  ">#{issInsIdCd},</if>
+			<if test="specDiscTp != null  and specDiscTp != ''  ">#{specDiscTp},</if>
+			<if test="specDiscLvl != null  and specDiscLvl != ''  ">#{specDiscLvl},</if>
+			<if test="allotAlgo != null  and allotAlgo != ''  ">#{allotAlgo},</if>
+			<if test="mchntDiscDetIndex != null  and mchntDiscDetIndex != ''  ">#{mchntDiscDetIndex},</if>
+			<if test="mcmgmAllotItemIndex != null  and mcmgmAllotItemIndex != ''  ">#{mcmgmAllotItemIndex},</if>
+			<if test="allotRole != null  and allotRole != ''  ">#{allotRole},</if>
+			<if test="allotInsIdCd1 != null  and allotInsIdCd1 != ''  ">#{allotInsIdCd1},</if>
+			<if test="allotInsIdCd2 != null  and allotInsIdCd2 != ''  ">#{allotInsIdCd2},</if>
+			<if test="allotInsIdCd3 != null  and allotInsIdCd3 != ''  ">#{allotInsIdCd3},</if>
+			<if test="allotInsIdCd4 != null  and allotInsIdCd4 != ''  ">#{allotInsIdCd4},</if>
+			<if test="allotInsIdCd5 != null  and allotInsIdCd5 != ''  ">#{allotInsIdCd5},</if>
+			<if test="mchntClass != null  and mchntClass != ''  ">#{mchntClass},</if>
+			<if test="rptGenInBmp != null  and rptGenInBmp != ''  ">#{rptGenInBmp},</if>
+			<if test="insResv7 != null  and insResv7 != ''  ">#{insResv7},</if>
+			<if test="bankSettleSeq != null  and bankSettleSeq != ''  ">#{bankSettleSeq},</if>
+			<if test="indaySettleIn != null  and indaySettleIn != ''  ">#{indaySettleIn},</if>
+			<if test="addnInf != null  and addnInf != ''  ">#{addnInf},</if>
+			<if test="iferrAcqPayFlag != null  and iferrAcqPayFlag != ''  ">#{iferrAcqPayFlag},</if>
+			<if test="mchntPrioIn != null  and mchntPrioIn != ''  ">#{mchntPrioIn},</if>
+			<if test="indayCycleMsgNo != null  and indayCycleMsgNo != ''  ">#{indayCycleMsgNo},</if>
+			<if test="indayCycleBussTp != null  and indayCycleBussTp != ''  ">#{indayCycleBussTp},</if>
+			<if test="enddayCycleMsgNo != null  and enddayCycleMsgNo != ''  ">#{enddayCycleMsgNo},</if>
+			<if test="enddayCycleBussTp != null  and enddayCycleBussTp != ''  ">#{enddayCycleBussTp},</if>
+			<if test="anyCycleDbitMsgNo != null  and anyCycleDbitMsgNo != ''  ">#{anyCycleDbitMsgNo},</if>
+			<if test="anyCycleDbitBussTp != null  and anyCycleDbitBussTp != ''  ">#{anyCycleDbitBussTp},</if>
+			<if test="mchntAttrBmp != null  and mchntAttrBmp != ''  ">#{mchntAttrBmp},</if>
+			<if test="feeSettleInsTp != null  and feeSettleInsTp != ''  ">#{feeSettleInsTp},</if>
+			<if test="mchntFeeBankNm != null  and mchntFeeBankNm != ''  ">#{mchntFeeBankNm},</if>
+			<if test="mchntFeeAcctBankCd != null  and mchntFeeAcctBankCd != ''  ">#{mchntFeeAcctBankCd},</if>
+			<if test="mchntFeeAcct != null  and mchntFeeAcct != ''  ">#{mchntFeeAcct},</if>
+			<if test="mchntFeeAcctNm != null  and mchntFeeAcctNm != ''  ">#{mchntFeeAcctNm},</if>
+			<if test="mchntFeeSettleBankCd != null  and mchntFeeSettleBankCd != ''  ">#{mchntFeeSettleBankCd},</if>
+			<if test="mchntFeeAcctInsIdCd != null  and mchntFeeAcctInsIdCd != ''  ">#{mchntFeeAcctInsIdCd},</if>
+			<if test="spInsIdCd != null  and spInsIdCd != ''  ">#{spInsIdCd},</if>
+			<if test="industryInsIdCd != null  and industryInsIdCd != ''  ">#{industryInsIdCd},</if>
+			<if test="mchntBussProcTp != null  and mchntBussProcTp != ''  ">#{mchntBussProcTp},</if>
+			<if test="trustAppTp != null  and trustAppTp != ''  ">#{trustAppTp},</if>
+			<if test="lateFeeCalcIn != null  and lateFeeCalcIn != ''  ">#{lateFeeCalcIn},</if>
+			<if test="lateFeeCalcMd != null  and lateFeeCalcMd != ''  ">#{lateFeeCalcMd},</if>
+			<if test="lateFeeUsrTp != null  and lateFeeUsrTp != ''  ">#{lateFeeUsrTp},</if>
+			<if test="maxBillPrintNum != null  and maxBillPrintNum != ''  ">#{maxBillPrintNum},</if>
+			<if test="fixAt != null  and fixAt != ''  ">#{fixAt},</if>
+			<if test="lateFeeLowerLimit != null  and lateFeeLowerLimit != ''  ">#{lateFeeLowerLimit},</if>
+			<if test="lateFeeHigherLimit != null  and lateFeeHigherLimit != ''  ">#{lateFeeHigherLimit},</if>
+			<if test="lateFeeBaseRt != null  and lateFeeBaseRt != ''  ">#{lateFeeBaseRt},</if>
+			<if test="lateFeeOverYearRt != null  and lateFeeOverYearRt != ''  ">#{lateFeeOverYearRt},</if>
+			<if test="mchntSettleAttr != null  and mchntSettleAttr != ''  ">#{mchntSettleAttr},</if>
+			<if test="entrustRelationIn != null  and entrustRelationIn != ''  ">#{entrustRelationIn},</if>
+			<if test="addActEntrustIn != null  and addActEntrustIn != ''  ">#{addActEntrustIn},</if>
+			<if test="taxTp != null  and taxTp != ''  ">#{taxTp},</if>
+			<if test="settleTreBankNo != null  and settleTreBankNo != ''  ">#{settleTreBankNo},</if>
+			<if test="pwdEncTp != null  and pwdEncTp != ''  ">#{pwdEncTp},</if>
+			<if test="pwdEncIndex != null  and pwdEncIndex != ''  ">#{pwdEncIndex},</if>
+			<if test="chnlMchntCd != null  and chnlMchntCd != ''  ">#{chnlMchntCd},</if>
+			<if test="specChargeIn != null  and specChargeIn != ''  ">#{specChargeIn},</if>
+			<if test="allotIn != null  and allotIn != ''  ">#{allotIn},</if>
+			<if test="svcNetUrl != null  and svcNetUrl != ''  ">#{svcNetUrl},</if>
+			<if test="mchntWebSiteNm != null  and mchntWebSiteNm != ''  ">#{mchntWebSiteNm},</if>
+			<if test="bussTp != null  and bussTp != ''  ">#{bussTp},</if>
+			<if test="prodFunc != null  and prodFunc != ''  ">#{prodFunc},</if>
+			<if test="ebussTp != null  and ebussTp != ''  ">#{ebussTp},</if>
+			<if test="prodFuncDesc != null  and prodFuncDesc != ''  ">#{prodFuncDesc},</if>
+			<if test="singleAtLimit != null  and singleAtLimit != ''  ">#{singleAtLimit},</if>
+			<if test="singleAtLimitDesc != null  and singleAtLimitDesc != ''  ">#{singleAtLimitDesc},</if>
+			<if test="singleCardDayAtLimit != null  and singleCardDayAtLimit != ''  ">#{singleCardDayAtLimit},</if>
+			<if test="singleCardDayAtLimitDesc != null  and singleCardDayAtLimitDesc != ''  ">#{singleCardDayAtLimitDesc},</if>
+			<if test="bussCont1 != null  and bussCont1 != ''  ">#{bussCont1},</if>
+			<if test="bussCont1Tel != null  and bussCont1Tel != ''  ">#{bussCont1Tel},</if>
+			<if test="bussCont1Cell != null  and bussCont1Cell != ''  ">#{bussCont1Cell},</if>
+			<if test="bussCont1Email != null  and bussCont1Email != ''  ">#{bussCont1Email},</if>
+			<if test="bussCont2 != null  and bussCont2 != ''  ">#{bussCont2},</if>
+			<if test="bussCont2Tel != null  and bussCont2Tel != ''  ">#{bussCont2Tel},</if>
+			<if test="bussCont2Cell != null  and bussCont2Cell != ''  ">#{bussCont2Cell},</if>
+			<if test="bussCont2Email != null  and bussCont2Email != ''  ">#{bussCont2Email},</if>
+			<if test="cupBranchResv10 != null  and cupBranchResv10 != ''  ">#{cupBranchResv10},</if>
+			<if test="cupBranchResv9 != null  and cupBranchResv9 != ''  ">#{cupBranchResv9},</if>
+			<if test="cycleMchntIn != null  and cycleMchntIn != ''  ">#{cycleMchntIn},</if>
+			<if test="mchntTransTp != null  and mchntTransTp != ''  ">#{mchntTransTp},</if>
+			<if test="frnAcqInsIdCd != null  and frnAcqInsIdCd != ''  ">#{frnAcqInsIdCd},</if>
+			<if test="insResv8 != null  and insResv8 != ''  ">#{insResv8},</if>
+			<if test="svcFeeIn != null  and svcFeeIn != ''  ">#{svcFeeIn},</if>
+			<if test="instlIn != null  and instlIn != ''  ">#{instlIn},</if>
+			<if test="callCenterPhone != null  and callCenterPhone != ''  ">#{callCenterPhone},</if>
+			<if test="mchntLvl != null  and mchntLvl != ''  ">#{mchntLvl},</if>
+			<if test="posNum != null  and posNum != ''  ">#{posNum},</if>
+			<if test="casherNum != null  and casherNum != ''  ">#{casherNum},</if>
+			<if test="mchntOpenDt != null  and mchntOpenDt != ''  ">#{mchntOpenDt},</if>
+			<if test="constrQuitDt != null  and constrQuitDt != ''  ">#{constrQuitDt},</if>
+			<if test="transChnl != null  and transChnl != ''  ">#{transChnl},</if>
+			<if test="constrQuitRsnCd != null  and constrQuitRsnCd != ''  ">#{constrQuitRsnCd},</if>
+			<if test="remark != null  and remark != ''  ">#{remark},</if>
+			<if test="cupBranchSpecFld != null  and cupBranchSpecFld != ''  ">#{cupBranchSpecFld},</if>
+			<if test="insResv1 != null  and insResv1 != ''  ">#{insResv1},</if>
+			<if test="insResv2 != null  and insResv2 != ''  ">#{insResv2},</if>
+			<if test="insResv3 != null  and insResv3 != ''  ">#{insResv3},</if>
+			<if test="insResv4 != null  and insResv4 != ''  ">#{insResv4},</if>
+			<if test="insResv5 != null  and insResv5 != ''  ">#{insResv5},</if>
+			<if test="insResv6 != null  and insResv6 != ''  ">#{insResv6},</if>
+			<if test="insResv9 != null  and insResv9 != ''  ">#{insResv9},</if>
+			<if test="insResv10 != null  and insResv10 != ''  ">#{insResv10},</if>
+			<if test="cupBranchResv1 != null  and cupBranchResv1 != ''  ">#{cupBranchResv1},</if>
+			<if test="cupBranchResv2 != null  and cupBranchResv2 != ''  ">#{cupBranchResv2},</if>
+			<if test="cupBranchResv3 != null  and cupBranchResv3 != ''  ">#{cupBranchResv3},</if>
+			<if test="cupBranchResv4 != null  and cupBranchResv4 != ''  ">#{cupBranchResv4},</if>
+			<if test="cupBranchResv5 != null  and cupBranchResv5 != ''  ">#{cupBranchResv5},</if>
+			<if test="cupBranchResv6 != null  and cupBranchResv6 != ''  ">#{cupBranchResv6},</if>
+			<if test="cupBranchResv7 != null  and cupBranchResv7 != ''  ">#{cupBranchResv7},</if>
+			<if test="cupBranchResv8 != null  and cupBranchResv8 != ''  ">#{cupBranchResv8},</if>
+			<if test="cupHdqrsResv1 != null  and cupHdqrsResv1 != ''  ">#{cupHdqrsResv1},</if>
+			<if test="cupHdqrsResv2 != null  and cupHdqrsResv2 != ''  ">#{cupHdqrsResv2},</if>
+			<if test="cupHdqrsResv3 != null  and cupHdqrsResv3 != ''  ">#{cupHdqrsResv3},</if>
+			<if test="cupHdqrsResv4 != null  and cupHdqrsResv4 != ''  ">#{cupHdqrsResv4},</if>
+			<if test="mchntNegActIn != null  and mchntNegActIn != ''  ">#{mchntNegActIn},</if>
+			<if test="riskArtifIn != null  and riskArtifIn != ''  ">#{riskArtifIn},</if>
+			<if test="riskMchntIn != null  and riskMchntIn != ''  ">#{riskMchntIn},</if>
+			<if test="susMchntIn != null  and susMchntIn != ''  ">#{susMchntIn},</if>
+			<if test="hdqrsBranchIn != null  and hdqrsBranchIn != ''  ">#{hdqrsBranchIn},</if>
+			<if test="hdqrsMchntCd != null  and hdqrsMchntCd != ''  ">#{hdqrsMchntCd},</if>
+			<if test="recnclTp != null  and recnclTp != ''  ">#{recnclTp},</if>
+			<if test="netMchntSvcTp != null  and netMchntSvcTp != ''  ">#{netMchntSvcTp},</if>
+			<if test="principalNm != null  and principalNm != ''  ">#{principalNm},</if>
+			<if test="submchntIn != null  and submchntIn != ''  ">#{submchntIn},</if>
+			<if test="svcInsNm != null  and svcInsNm != ''  ">#{svcInsNm},</if>
+			<if test="cooking != null  and cooking != ''  ">#{cooking},</if>
+			<if test="mchntIcp != null  and mchntIcp != ''  ">#{mchntIcp},</if>
+			<if test="trafficLine != null  and trafficLine != ''  ">#{trafficLine},</if>
+			<if test="directAcqSettleIn != null  and directAcqSettleIn != ''  ">#{directAcqSettleIn},</if>
+			<if test="nmAddr != null  and nmAddr != ''  ">#{nmAddr},</if>
+			<if test="allotCd != null  and allotCd != ''  ">#{allotCd},</if>
+			<if test="mccApplRule != null  and mccApplRule != ''  ">#{mccApplRule},</if>
+			<if test="masterPwd != null  and masterPwd != ''  ">#{masterPwd},</if>
+			<if test="mccApplRsnCd != null  and mccApplRsnCd != ''  ">#{mccApplRsnCd},</if>
+			<if test="specFeeStdDesc != null  and specFeeStdDesc != ''  ">#{specFeeStdDesc},</if>
+			<if test="nmAddr1 != null  and nmAddr1 != ''  ">#{nmAddr1},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateCupMerchantInfo" parameterType="com.unionpay.dao.model.CupMerchantInfo">
+        update cup_merchant_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mchntSvcTp != null  and mchntSvcTp != ''  ">mchnt_svc_tp = #{mchntSvcTp},</if>
+            <if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">cup_branch_ins_id_cd = #{cupBranchInsIdCd},</if>
+            <if test="mchntCnNm != null  and mchntCnNm != ''  ">mchnt_cn_nm = #{mchntCnNm},</if>
+            <if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">mchnt_cn_abbr = #{mchntCnAbbr},</if>
+            <if test="acqInsIdCd != null  and acqInsIdCd != ''  ">acq_ins_id_cd = #{acqInsIdCd},</if>
+            <if test="acptInsIdCd != null  and acptInsIdCd != ''  ">acpt_ins_id_cd = #{acptInsIdCd},</if>
+            <if test="platInsIdCd != null  and platInsIdCd != ''  ">plat_ins_id_cd = #{platInsIdCd},</if>
+            <if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">acq_access_ins_id_cd = #{acqAccessInsIdCd},</if>
+            <if test="cntryCd != null  and cntryCd != ''  ">cntry_cd = #{cntryCd},</if>
+            <if test="gbRegionCd != null  and gbRegionCd != ''  ">gb_region_cd = #{gbRegionCd},</if>
+            <if test="acqRegionCd != null  and acqRegionCd != ''  ">acq_region_cd = #{acqRegionCd},</if>
+            <if test="mchntTp != null  and mchntTp != ''  ">mchnt_tp = #{mchntTp},</if>
+            <if test="regionCd != null  and regionCd != ''  ">region_cd = #{regionCd},</if>
+            <if test="realMchntTp != null  and realMchntTp != ''  ">real_mchnt_tp = #{realMchntTp},</if>
+            <if test="mchntGrp != null  and mchntGrp != ''  ">mchnt_grp = #{mchntGrp},</if>
+            <if test="mchntSt != null  and mchntSt != ''  ">mchnt_st = #{mchntSt},</if>
+            <if test="industryTp != null  and industryTp != ''  ">industry_tp = #{industryTp},</if>
+            <if test="cardAccptNmAddr != null  and cardAccptNmAddr != ''  ">card_accpt_nm_addr = #{cardAccptNmAddr},</if>
+            <if test="mchntEnNm != null  and mchntEnNm != ''  ">mchnt_en_nm = #{mchntEnNm},</if>
+            <if test="mchntEnAbbr != null  and mchntEnAbbr != ''  ">mchnt_en_abbr = #{mchntEnAbbr},</if>
+            <if test="resvFld2 != null  and resvFld2 != ''  ">resv_fld2 = #{resvFld2},</if>
+            <if test="connMd != null  and connMd != ''  ">conn_md = #{connMd},</if>
+            <if test="misMchntIn != null  and misMchntIn != ''  ">mis_mchnt_in = #{misMchntIn},</if>
+            <if test="mchntAcptCurrBmp != null  and mchntAcptCurrBmp != ''  ">mchnt_acpt_curr_bmp = #{mchntAcptCurrBmp},</if>
+            <if test="mchntDftCurrCd != null  and mchntDftCurrCd != ''  ">mchnt_dft_curr_cd = #{mchntDftCurrCd},</if>
+            <if test="licNo != null  and licNo != ''  ">lic_no = #{licNo},</if>
+            <if test="licExpireDt != null  and licExpireDt != ''  ">lic_expire_dt = #{licExpireDt},</if>
+            <if test="issOrgan != null  and issOrgan != ''  ">iss_organ = #{issOrgan},</if>
+            <if test="regAddr != null  and regAddr != ''  ">reg_addr = #{regAddr},</if>
+            <if test="reveRegCd != null  and reveRegCd != ''  ">reve_reg_cd = #{reveRegCd},</if>
+            <if test="etpsAttr != null  and etpsAttr != ''  ">etps_attr = #{etpsAttr},</if>
+            <if test="corpId != null  and corpId != ''  ">corp_id = #{corpId},</if>
+            <if test="artifCertifTp != null  and artifCertifTp != ''  ">artif_certif_tp = #{artifCertifTp},</if>
+            <if test="artifCertifId != null  and artifCertifId != ''  ">artif_certif_id = #{artifCertifId},</if>
+            <if test="artifNm != null  and artifNm != ''  ">artif_nm = #{artifNm},</if>
+            <if test="contactPersonNm != null  and contactPersonNm != ''  ">contact_person_nm = #{contactPersonNm},</if>
+            <if test="commAddr != null  and commAddr != ''  ">comm_addr = #{commAddr},</if>
+            <if test="zipCd != null  and zipCd != ''  ">zip_cd = #{zipCd},</if>
+            <if test="phone != null  and phone != ''  ">phone = #{phone},</if>
+            <if test="mobile != null  and mobile != ''  ">mobile = #{mobile},</if>
+            <if test="emailAddr != null  and emailAddr != ''  ">email_addr = #{emailAddr},</if>
+            <if test="faxNo != null  and faxNo != ''  ">fax_no = #{faxNo},</if>
+            <if test="cfoNm != null  and cfoNm != ''  ">cfo_nm = #{cfoNm},</if>
+            <if test="maintnCompanyTp != null  and maintnCompanyTp != ''  ">maintn_company_tp = #{maintnCompanyTp},</if>
+            <if test="regCap != null  and regCap != ''  ">reg_cap = #{regCap},</if>
+            <if test="regCaptialCurrCd != null  and regCaptialCurrCd != ''  ">reg_captial_curr_cd = #{regCaptialCurrCd},</if>
+            <if test="bussRange != null  and bussRange != ''  ">buss_range = #{bussRange},</if>
+            <if test="bussAddr != null  and bussAddr != ''  ">buss_addr = #{bussAddr},</if>
+            <if test="signIn != null  and signIn != ''  ">sign_in = #{signIn},</if>
+            <if test="enotesIn != null  and enotesIn != ''  ">enotes_in = #{enotesIn},</if>
+            <if test="settleInsTp != null  and settleInsTp != ''  ">settle_ins_tp = #{settleInsTp},</if>
+            <if test="acctInsIdCd != null  and acctInsIdCd != ''  ">acct_ins_id_cd = #{acctInsIdCd},</if>
+            <if test="mchntSettleMd != null  and mchntSettleMd != ''  ">mchnt_settle_md = #{mchntSettleMd},</if>
+            <if test="packMchntCd != null  and packMchntCd != ''  ">pack_mchnt_cd = #{packMchntCd},</if>
+            <if test="cycleSettleTp != null  and cycleSettleTp != ''  ">cycle_settle_tp = #{cycleSettleTp},</if>
+            <if test="prepayReturnTp != null  and prepayReturnTp != ''  ">prepay_return_tp = #{prepayReturnTp},</if>
+            <if test="mchntSettleIn != null  and mchntSettleIn != ''  ">mchnt_settle_in = #{mchntSettleIn},</if>
+            <if test="bankNm1 != null  and bankNm1 != ''  ">bank_nm1 = #{bankNm1},</if>
+            <if test="bankSettleNo1 != null  and bankSettleNo1 != ''  ">bank_settle_no1 = #{bankSettleNo1},</if>
+            <if test="mchntSettleBankCd != null  and mchntSettleBankCd != ''  ">mchnt_settle_bank_cd = #{mchntSettleBankCd},</if>
+            <if test="acctCurrCd1 != null  and acctCurrCd1 != ''  ">acct_curr_cd1 = #{acctCurrCd1},</if>
+            <if test="acctNm1 != null  and acctNm1 != ''  ">acct_nm1 = #{acctNm1},</if>
+            <if test="acctNo1 != null  and acctNo1 != ''  ">acct_no1 = #{acctNo1},</if>
+            <if test="specSettleIn != null  and specSettleIn != ''  ">spec_settle_in = #{specSettleIn},</if>
+            <if test="issInsIdCd != null  and issInsIdCd != ''  ">iss_ins_id_cd = #{issInsIdCd},</if>
+            <if test="specDiscTp != null  and specDiscTp != ''  ">spec_disc_tp = #{specDiscTp},</if>
+            <if test="specDiscLvl != null  and specDiscLvl != ''  ">spec_disc_lvl = #{specDiscLvl},</if>
+            <if test="allotAlgo != null  and allotAlgo != ''  ">allot_algo = #{allotAlgo},</if>
+            <if test="mchntDiscDetIndex != null  and mchntDiscDetIndex != ''  ">mchnt_disc_det_index = #{mchntDiscDetIndex},</if>
+            <if test="mcmgmAllotItemIndex != null  and mcmgmAllotItemIndex != ''  ">mcmgm_allot_item_index = #{mcmgmAllotItemIndex},</if>
+            <if test="allotRole != null  and allotRole != ''  ">allot_role = #{allotRole},</if>
+            <if test="allotInsIdCd1 != null  and allotInsIdCd1 != ''  ">allot_ins_id_cd1 = #{allotInsIdCd1},</if>
+            <if test="allotInsIdCd2 != null  and allotInsIdCd2 != ''  ">allot_ins_id_cd2 = #{allotInsIdCd2},</if>
+            <if test="allotInsIdCd3 != null  and allotInsIdCd3 != ''  ">allot_ins_id_cd3 = #{allotInsIdCd3},</if>
+            <if test="allotInsIdCd4 != null  and allotInsIdCd4 != ''  ">allot_ins_id_cd4 = #{allotInsIdCd4},</if>
+            <if test="allotInsIdCd5 != null  and allotInsIdCd5 != ''  ">allot_ins_id_cd5 = #{allotInsIdCd5},</if>
+            <if test="mchntClass != null  and mchntClass != ''  ">mchnt_class = #{mchntClass},</if>
+            <if test="rptGenInBmp != null  and rptGenInBmp != ''  ">rpt_gen_in_bmp = #{rptGenInBmp},</if>
+            <if test="insResv7 != null  and insResv7 != ''  ">ins_resv7 = #{insResv7},</if>
+            <if test="bankSettleSeq != null  and bankSettleSeq != ''  ">bank_settle_seq = #{bankSettleSeq},</if>
+            <if test="indaySettleIn != null  and indaySettleIn != ''  ">inday_settle_in = #{indaySettleIn},</if>
+            <if test="addnInf != null  and addnInf != ''  ">addn_inf = #{addnInf},</if>
+            <if test="iferrAcqPayFlag != null  and iferrAcqPayFlag != ''  ">iferr_acq_pay_flag = #{iferrAcqPayFlag},</if>
+            <if test="mchntPrioIn != null  and mchntPrioIn != ''  ">mchnt_prio_in = #{mchntPrioIn},</if>
+            <if test="indayCycleMsgNo != null  and indayCycleMsgNo != ''  ">inday_cycle_msg_no = #{indayCycleMsgNo},</if>
+            <if test="indayCycleBussTp != null  and indayCycleBussTp != ''  ">inday_cycle_buss_tp = #{indayCycleBussTp},</if>
+            <if test="enddayCycleMsgNo != null  and enddayCycleMsgNo != ''  ">endday_cycle_msg_no = #{enddayCycleMsgNo},</if>
+            <if test="enddayCycleBussTp != null  and enddayCycleBussTp != ''  ">endday_cycle_buss_tp = #{enddayCycleBussTp},</if>
+            <if test="anyCycleDbitMsgNo != null  and anyCycleDbitMsgNo != ''  ">any_cycle_dbit_msg_no = #{anyCycleDbitMsgNo},</if>
+            <if test="anyCycleDbitBussTp != null  and anyCycleDbitBussTp != ''  ">any_cycle_dbit_buss_tp = #{anyCycleDbitBussTp},</if>
+            <if test="mchntAttrBmp != null  and mchntAttrBmp != ''  ">mchnt_attr_bmp = #{mchntAttrBmp},</if>
+            <if test="feeSettleInsTp != null  and feeSettleInsTp != ''  ">fee_settle_ins_tp = #{feeSettleInsTp},</if>
+            <if test="mchntFeeBankNm != null  and mchntFeeBankNm != ''  ">mchnt_fee_bank_nm = #{mchntFeeBankNm},</if>
+            <if test="mchntFeeAcctBankCd != null  and mchntFeeAcctBankCd != ''  ">mchnt_fee_acct_bank_cd = #{mchntFeeAcctBankCd},</if>
+            <if test="mchntFeeAcct != null  and mchntFeeAcct != ''  ">mchnt_fee_acct = #{mchntFeeAcct},</if>
+            <if test="mchntFeeAcctNm != null  and mchntFeeAcctNm != ''  ">mchnt_fee_acct_nm = #{mchntFeeAcctNm},</if>
+            <if test="mchntFeeSettleBankCd != null  and mchntFeeSettleBankCd != ''  ">mchnt_fee_settle_bank_cd = #{mchntFeeSettleBankCd},</if>
+            <if test="mchntFeeAcctInsIdCd != null  and mchntFeeAcctInsIdCd != ''  ">mchnt_fee_acct_ins_id_cd = #{mchntFeeAcctInsIdCd},</if>
+            <if test="spInsIdCd != null  and spInsIdCd != ''  ">sp_ins_id_cd = #{spInsIdCd},</if>
+            <if test="industryInsIdCd != null  and industryInsIdCd != ''  ">industry_ins_id_cd = #{industryInsIdCd},</if>
+            <if test="mchntBussProcTp != null  and mchntBussProcTp != ''  ">mchnt_buss_proc_tp = #{mchntBussProcTp},</if>
+            <if test="trustAppTp != null  and trustAppTp != ''  ">trust_app_tp = #{trustAppTp},</if>
+            <if test="lateFeeCalcIn != null  and lateFeeCalcIn != ''  ">late_fee_calc_in = #{lateFeeCalcIn},</if>
+            <if test="lateFeeCalcMd != null  and lateFeeCalcMd != ''  ">late_fee_calc_md = #{lateFeeCalcMd},</if>
+            <if test="lateFeeUsrTp != null  and lateFeeUsrTp != ''  ">late_fee_usr_tp = #{lateFeeUsrTp},</if>
+            <if test="maxBillPrintNum != null  and maxBillPrintNum != ''  ">max_bill_print_num = #{maxBillPrintNum},</if>
+            <if test="fixAt != null  and fixAt != ''  ">fix_at = #{fixAt},</if>
+            <if test="lateFeeLowerLimit != null  and lateFeeLowerLimit != ''  ">late_fee_lower_limit = #{lateFeeLowerLimit},</if>
+            <if test="lateFeeHigherLimit != null  and lateFeeHigherLimit != ''  ">late_fee_higher_limit = #{lateFeeHigherLimit},</if>
+            <if test="lateFeeBaseRt != null  and lateFeeBaseRt != ''  ">late_fee_base_rt = #{lateFeeBaseRt},</if>
+            <if test="lateFeeOverYearRt != null  and lateFeeOverYearRt != ''  ">late_fee_over_year_rt = #{lateFeeOverYearRt},</if>
+            <if test="mchntSettleAttr != null  and mchntSettleAttr != ''  ">mchnt_settle_attr = #{mchntSettleAttr},</if>
+            <if test="entrustRelationIn != null  and entrustRelationIn != ''  ">entrust_relation_in = #{entrustRelationIn},</if>
+            <if test="addActEntrustIn != null  and addActEntrustIn != ''  ">add_act_entrust_in = #{addActEntrustIn},</if>
+            <if test="taxTp != null  and taxTp != ''  ">tax_tp = #{taxTp},</if>
+            <if test="settleTreBankNo != null  and settleTreBankNo != ''  ">settle_tre_bank_no = #{settleTreBankNo},</if>
+            <if test="pwdEncTp != null  and pwdEncTp != ''  ">pwd_enc_tp = #{pwdEncTp},</if>
+            <if test="pwdEncIndex != null  and pwdEncIndex != ''  ">pwd_enc_index = #{pwdEncIndex},</if>
+            <if test="chnlMchntCd != null  and chnlMchntCd != ''  ">chnl_mchnt_cd = #{chnlMchntCd},</if>
+            <if test="specChargeIn != null  and specChargeIn != ''  ">spec_charge_in = #{specChargeIn},</if>
+            <if test="allotIn != null  and allotIn != ''  ">allot_in = #{allotIn},</if>
+            <if test="svcNetUrl != null  and svcNetUrl != ''  ">svc_net_url = #{svcNetUrl},</if>
+            <if test="mchntWebSiteNm != null  and mchntWebSiteNm != ''  ">mchnt_web_site_nm = #{mchntWebSiteNm},</if>
+            <if test="bussTp != null  and bussTp != ''  ">buss_tp = #{bussTp},</if>
+            <if test="prodFunc != null  and prodFunc != ''  ">prod_func = #{prodFunc},</if>
+            <if test="ebussTp != null  and ebussTp != ''  ">ebuss_tp = #{ebussTp},</if>
+            <if test="prodFuncDesc != null  and prodFuncDesc != ''  ">prod_func_desc = #{prodFuncDesc},</if>
+            <if test="singleAtLimit != null  and singleAtLimit != ''  ">single_at_limit = #{singleAtLimit},</if>
+            <if test="singleAtLimitDesc != null  and singleAtLimitDesc != ''  ">single_at_limit_desc = #{singleAtLimitDesc},</if>
+            <if test="singleCardDayAtLimit != null  and singleCardDayAtLimit != ''  ">single_card_day_at_limit = #{singleCardDayAtLimit},</if>
+            <if test="singleCardDayAtLimitDesc != null  and singleCardDayAtLimitDesc != ''  ">single_card_day_at_limit_desc = #{singleCardDayAtLimitDesc},</if>
+            <if test="bussCont1 != null  and bussCont1 != ''  ">buss_cont1 = #{bussCont1},</if>
+            <if test="bussCont1Tel != null  and bussCont1Tel != ''  ">buss_cont1_tel = #{bussCont1Tel},</if>
+            <if test="bussCont1Cell != null  and bussCont1Cell != ''  ">buss_cont1_cell = #{bussCont1Cell},</if>
+            <if test="bussCont1Email != null  and bussCont1Email != ''  ">buss_cont1_email = #{bussCont1Email},</if>
+            <if test="bussCont2 != null  and bussCont2 != ''  ">buss_cont2 = #{bussCont2},</if>
+            <if test="bussCont2Tel != null  and bussCont2Tel != ''  ">buss_cont2_tel = #{bussCont2Tel},</if>
+            <if test="bussCont2Cell != null  and bussCont2Cell != ''  ">buss_cont2_cell = #{bussCont2Cell},</if>
+            <if test="bussCont2Email != null  and bussCont2Email != ''  ">buss_cont2_email = #{bussCont2Email},</if>
+            <if test="cupBranchResv10 != null  and cupBranchResv10 != ''  ">cup_branch_resv10 = #{cupBranchResv10},</if>
+            <if test="cupBranchResv9 != null  and cupBranchResv9 != ''  ">cup_branch_resv9 = #{cupBranchResv9},</if>
+            <if test="cycleMchntIn != null  and cycleMchntIn != ''  ">cycle_mchnt_in = #{cycleMchntIn},</if>
+            <if test="mchntTransTp != null  and mchntTransTp != ''  ">mchnt_trans_tp = #{mchntTransTp},</if>
+            <if test="frnAcqInsIdCd != null  and frnAcqInsIdCd != ''  ">frn_acq_ins_id_cd = #{frnAcqInsIdCd},</if>
+            <if test="insResv8 != null  and insResv8 != ''  ">ins_resv8 = #{insResv8},</if>
+            <if test="svcFeeIn != null  and svcFeeIn != ''  ">svc_fee_in = #{svcFeeIn},</if>
+            <if test="instlIn != null  and instlIn != ''  ">instl_in = #{instlIn},</if>
+            <if test="callCenterPhone != null  and callCenterPhone != ''  ">call_center_phone = #{callCenterPhone},</if>
+            <if test="mchntLvl != null  and mchntLvl != ''  ">mchnt_lvl = #{mchntLvl},</if>
+            <if test="posNum != null  and posNum != ''  ">pos_num = #{posNum},</if>
+            <if test="casherNum != null  and casherNum != ''  ">casher_num = #{casherNum},</if>
+            <if test="mchntOpenDt != null  and mchntOpenDt != ''  ">mchnt_open_dt = #{mchntOpenDt},</if>
+            <if test="constrQuitDt != null  and constrQuitDt != ''  ">constr_quit_dt = #{constrQuitDt},</if>
+            <if test="transChnl != null  and transChnl != ''  ">trans_chnl = #{transChnl},</if>
+            <if test="constrQuitRsnCd != null  and constrQuitRsnCd != ''  ">constr_quit_rsn_cd = #{constrQuitRsnCd},</if>
+            <if test="remark != null  and remark != ''  ">remark = #{remark},</if>
+            <if test="cupBranchSpecFld != null  and cupBranchSpecFld != ''  ">cup_branch_spec_fld = #{cupBranchSpecFld},</if>
+            <if test="insResv1 != null  and insResv1 != ''  ">ins_resv1 = #{insResv1},</if>
+            <if test="insResv2 != null  and insResv2 != ''  ">ins_resv2 = #{insResv2},</if>
+            <if test="insResv3 != null  and insResv3 != ''  ">ins_resv3 = #{insResv3},</if>
+            <if test="insResv4 != null  and insResv4 != ''  ">ins_resv4 = #{insResv4},</if>
+            <if test="insResv5 != null  and insResv5 != ''  ">ins_resv5 = #{insResv5},</if>
+            <if test="insResv6 != null  and insResv6 != ''  ">ins_resv6 = #{insResv6},</if>
+            <if test="insResv9 != null  and insResv9 != ''  ">ins_resv9 = #{insResv9},</if>
+            <if test="insResv10 != null  and insResv10 != ''  ">ins_resv10 = #{insResv10},</if>
+            <if test="cupBranchResv1 != null  and cupBranchResv1 != ''  ">cup_branch_resv1 = #{cupBranchResv1},</if>
+            <if test="cupBranchResv2 != null  and cupBranchResv2 != ''  ">cup_branch_resv2 = #{cupBranchResv2},</if>
+            <if test="cupBranchResv3 != null  and cupBranchResv3 != ''  ">cup_branch_resv3 = #{cupBranchResv3},</if>
+            <if test="cupBranchResv4 != null  and cupBranchResv4 != ''  ">cup_branch_resv4 = #{cupBranchResv4},</if>
+            <if test="cupBranchResv5 != null  and cupBranchResv5 != ''  ">cup_branch_resv5 = #{cupBranchResv5},</if>
+            <if test="cupBranchResv6 != null  and cupBranchResv6 != ''  ">cup_branch_resv6 = #{cupBranchResv6},</if>
+            <if test="cupBranchResv7 != null  and cupBranchResv7 != ''  ">cup_branch_resv7 = #{cupBranchResv7},</if>
+            <if test="cupBranchResv8 != null  and cupBranchResv8 != ''  ">cup_branch_resv8 = #{cupBranchResv8},</if>
+            <if test="cupHdqrsResv1 != null  and cupHdqrsResv1 != ''  ">cup_hdqrs_resv1 = #{cupHdqrsResv1},</if>
+            <if test="cupHdqrsResv2 != null  and cupHdqrsResv2 != ''  ">cup_hdqrs_resv2 = #{cupHdqrsResv2},</if>
+            <if test="cupHdqrsResv3 != null  and cupHdqrsResv3 != ''  ">cup_hdqrs_resv3 = #{cupHdqrsResv3},</if>
+            <if test="cupHdqrsResv4 != null  and cupHdqrsResv4 != ''  ">cup_hdqrs_resv4 = #{cupHdqrsResv4},</if>
+            <if test="mchntNegActIn != null  and mchntNegActIn != ''  ">mchnt_neg_act_in = #{mchntNegActIn},</if>
+            <if test="riskArtifIn != null  and riskArtifIn != ''  ">risk_artif_in = #{riskArtifIn},</if>
+            <if test="riskMchntIn != null  and riskMchntIn != ''  ">risk_mchnt_in = #{riskMchntIn},</if>
+            <if test="susMchntIn != null  and susMchntIn != ''  ">sus_mchnt_in = #{susMchntIn},</if>
+            <if test="hdqrsBranchIn != null  and hdqrsBranchIn != ''  ">hdqrs_branch_in = #{hdqrsBranchIn},</if>
+            <if test="hdqrsMchntCd != null  and hdqrsMchntCd != ''  ">hdqrs_mchnt_cd = #{hdqrsMchntCd},</if>
+            <if test="recnclTp != null  and recnclTp != ''  ">recncl_tp = #{recnclTp},</if>
+            <if test="netMchntSvcTp != null  and netMchntSvcTp != ''  ">net_mchnt_svc_tp = #{netMchntSvcTp},</if>
+            <if test="principalNm != null  and principalNm != ''  ">principal_nm = #{principalNm},</if>
+            <if test="submchntIn != null  and submchntIn != ''  ">submchnt_in = #{submchntIn},</if>
+            <if test="svcInsNm != null  and svcInsNm != ''  ">svc_ins_nm = #{svcInsNm},</if>
+            <if test="cooking != null  and cooking != ''  ">cooking = #{cooking},</if>
+            <if test="mchntIcp != null  and mchntIcp != ''  ">mchnt_icp = #{mchntIcp},</if>
+            <if test="trafficLine != null  and trafficLine != ''  ">traffic_line = #{trafficLine},</if>
+            <if test="directAcqSettleIn != null  and directAcqSettleIn != ''  ">direct_acq_settle_in = #{directAcqSettleIn},</if>
+            <if test="nmAddr != null  and nmAddr != ''  ">nm_addr = #{nmAddr},</if>
+            <if test="allotCd != null  and allotCd != ''  ">allot_cd = #{allotCd},</if>
+            <if test="mccApplRule != null  and mccApplRule != ''  ">mcc_appl_rule = #{mccApplRule},</if>
+            <if test="masterPwd != null  and masterPwd != ''  ">master_pwd = #{masterPwd},</if>
+            <if test="mccApplRsnCd != null  and mccApplRsnCd != ''  ">mcc_appl_rsn_cd = #{mccApplRsnCd},</if>
+            <if test="specFeeStdDesc != null  and specFeeStdDesc != ''  ">spec_fee_std_desc = #{specFeeStdDesc},</if>
+            <if test="nmAddr1 != null  and nmAddr1 != ''  ">nm_addr1 = #{nmAddr1},</if>
+        </trim>
+        where mchnt_cd = #{mchntCd}
+    </update>
+
+	<delete id="deleteCupMerchantInfoById" parameterType="String">
+        delete from cup_merchant_info where mchnt_cd = #{mchntCd}
+    </delete>
+	
+    <delete id="deleteCupMerchantInfoByIds" parameterType="String">
+        delete from cup_merchant_info where mchnt_cd in 
+        <foreach item="mchntCd" collection="array" open="(" separator="," close=")">
+            #{mchntCd}
+        </foreach>
+    </delete>
+    
+</mapper>

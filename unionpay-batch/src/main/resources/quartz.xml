@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="quartzJob" class="com.unionpay.quartz.QuartzJobLauncher"></bean>
+    <!-- 注册job -->
+    <bean id="jobRegistry" class="org.springframework.batch.core.configuration.support.MapJobRegistry"></bean>
+
+    <bean class="org.springframework.batch.core.configuration.support.JobRegistryBeanPostProcessor">
+        <property name="jobRegistry" ref="jobRegistry"></property>
+    </bean>
+
+    <!-- jobLauncher在batch-config.xml文件中定义了 -->
+    <!-- 系统架构测试配置 -->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.unionpay.quartz.QuartzJobLauncher"></property>
+        <property name="jobDataMap">
+            <map>
+                <entry key="jobName" value="unionJob"></entry>
+                <entry key="jobLauncher" value-ref="jobLauncher"></entry>
+                <entry key="jobLocator" value-ref="jobRegistry"></entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"></property>
+        <property name="cronExpression" value="0 49 9 ? * *"></property>
+        <property name="startDelay" value="3000"></property>
+    </bean>
+   
+    <!-- 积分账户定时任务配置 -->
+    <bean id="jobAccount" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.unionpay.quartz.MchIntegralAccountQuartzJobLaucher"></property>
+        <property name="jobDataMap">
+            <map>
+                <entry key="accountJob" value="accountJob"></entry>
+                <entry key="jobLauncher" value-ref="jobLauncher"></entry>
+                <entry key="jobLocator" value-ref="jobRegistry"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="cronTriggerAccount" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobAccount"></property>
+        <property name="cronExpression" value="0 54 15 ? * *"></property>
+        <property name="startDelay" value="3000"></property>
+    </bean>
+    
+    <!-- 同步商户数据定时任务配置 -->
+    <bean id="jobMerchInfo" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.unionpay.quartz.SyncMerchInfoDataQuartzJobLauncher"></property>
+        <property name="jobDataMap">
+            <map>
+                <entry key="syncMerchJob" value="syncMerchJob"></entry>
+                <entry key="jobLauncher" value-ref="jobLauncher"></entry>
+                <entry key="jobLocator" value-ref="jobRegistry"></entry>
+            </map>
+        </property>
+    </bean>
+     <bean id="cronTriggerSyncMerch" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobMerchInfo"></property>
+        <property name="cronExpression" value="0 38 16 ? * *"></property>
+        <property name="startDelay" value="3000"></property>
+    </bean>
+    
+    <!-- 同步机构数据定时任务配置 -->
+    <bean id="jobAgent" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.unionpay.quartz.SyncAgentDataQuartzJobLaucher" />
+        <property name="jobDataMap">
+            <map>
+                <entry key="syncAgentJob" value="syncAgentJob"></entry>
+                <entry key="jobLauncher" value-ref="jobLauncher"></entry>
+                <entry key="jobLocator" value-ref="jobRegistry"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="cronTriggerSyncAgent" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobAgent"></property>
+        <property name="cronExpression" value="0 27 17 ? * *"></property>
+        <property name="startDelay" value="3000"></property>
+    </bean>
+    
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	         <list>  
+	            <ref bean="cronTrigger" />  
+	            <ref bean="cronTriggerAccount" />
+	            <ref bean="cronTriggerSyncMerch" />
+	            <ref bean="cronTriggerSyncAgent" />
+	         </list>  
+	    </property>
+    </bean>
+</beans>

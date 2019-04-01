@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:batch="http://www.springframework.org/schema/batch"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="jobRepository" class="org.springframework.batch.core.repository.support.JobRepositoryFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="transactionManager" ref="transactionManager"></property>
+    </bean>
+    
+    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+        <property name="jobRepository" ref="jobRepository"></property>
+    </bean>
+    
+    <bean id="jobExplorer" class="org.springframework.batch.core.explore.support.JobExplorerFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>  
+
+	<batch:job id="unionJob" restartable="true">
+     <batch:step id="myStep" allow-start-if-complete="true">
+            <batch:tasklet ref="myTasklet"></batch:tasklet>
+     </batch:step>
+    </batch:job> 
+    
+    <batch:job id="accountJob" restartable="true">
+       <batch:step id="accountStep" allow-start-if-complete="true">
+            <batch:tasklet ref="accountTasklet"></batch:tasklet>
+      </batch:step>
+    </batch:job>
+    
+    <batch:job id="syncMerchJob" restartable="true">
+       <batch:step id="syncMerchStep" allow-start-if-complete="true">
+            <batch:tasklet ref="syncMerchantInfoTasklet"></batch:tasklet>
+       </batch:step>
+    </batch:job>
+    
+    <batch:job id="syncAgentJob" restartable="true">
+      <batch:step id="syncAgenStep" allow-start-if-complete="true">
+            <batch:tasklet ref="accountTasklet"></batch:tasklet>
+      </batch:step>
+    </batch:job>
+
+    <bean id="myTasklet" class="com.unionpay.batchtask.MyTasklet"></bean>
+    <bean id="accountTasklet" class="com.unionpay.batchtask.AccountTasklet"></bean>
+    <bean id="syncMerchantInfoTasklet" class="com.unionpay.batchtask.SyncMerchantInfoTasklet"></bean>
+    <bean id="syncAgentTasklet" class="com.unionpay.batchtask.SyncAgentTasklet"></bean>
+</beans>

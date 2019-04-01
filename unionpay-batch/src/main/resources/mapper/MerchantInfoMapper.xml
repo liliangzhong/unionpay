@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unionpay.dao.repository.MerchantInfoMapper">
+    
+    <resultMap type="com.unionpay.dao.model.MerchantInfo" id="MerchantInfoResult">
+        <result property="merchId"    column="merch_id"    />
+        <result property="mchntCnNm"    column="mchnt_cn_nm"    />
+        <result property="mchntCnAbbr"    column="mchnt_cn_abbr"    />
+        <result property="mchntSvcTp"    column="mchnt_svc_tp"    />
+        <result property="cupBranchInsIdCd"    column="cup_branch_ins_id_cd"    />
+        <result property="source"    column="source"    />
+        <result property="mchntFacilitator"    column="mchnt_facilitator"    />
+        <result property="mchntType"    column="mchnt_type"    />
+        <result property="mchntMainclass"    column="mchnt_mainclass"    />
+        <result property="mchntSubclass"    column="mchnt_subclass"    />
+        <result property="mchntGrade"    column="mchnt_grade"    />
+        <result property="address"    column="address"    />
+        <result property="acqInsIdCd"    column="acq_ins_id_cd"    />
+        <result property="acptInsIdCd"    column="acpt_ins_id_cd"    />
+        <result property="platInsIdCd"    column="plat_ins_id_cd"    />
+        <result property="acqAccessInsIdCd"    column="acq_access_ins_id_cd"    />
+        <result property="cntryCd"    column="cntry_cd"    />
+        <result property="gbRegionId"    column="gb_region_id"    />
+        <result property="acqRegionCd"    column="acq_region_cd"    />
+        <result property="mchntTp"    column="mchnt_tp"    />
+        <result property="regionCd"    column="region_cd"    />
+        <result property="realMchntTp"    column="real_mchnt_tp"    />
+        <result property="mchntGrp"    column="mchnt_grp"    />
+        <result property="mchntSt"    column="mchnt_st"    />
+        <result property="industryTp"    column="industry_tp"    />
+        <result property="contact"    column="contact"    />
+        <result property="phone"    column="phone"    />
+        <result property="remark"    column="remark"    />
+        <result property="createdBy"    column="created_by"    />
+        <result property="createdTime"    column="created_time"    />
+        <result property="updatedBy"    column="updated_by"    />
+        <result property="updatedTime"    column="updated_time"    />
+    </resultMap>
+	
+	<sql id="selectMerchantInfoVo">
+        select merch_id, mchnt_cn_nm, mchnt_cn_abbr, mchnt_svc_tp, cup_branch_ins_id_cd, source, mchnt_facilitator, mchnt_type, mchnt_mainclass, mchnt_subclass, mchnt_grade, address, acq_ins_id_cd, acpt_ins_id_cd, plat_ins_id_cd, acq_access_ins_id_cd, cntry_cd, gb_region_id, acq_region_cd, mchnt_tp, region_cd, real_mchnt_tp, mchnt_grp, mchnt_st, industry_tp, contact, phone, remark, created_by, created_time, updated_by, updated_time from up_merchant_info
+    </sql>
+	
+    <select id="selectMerchantInfoList" parameterType="com.unionpay.dao.model.MerchantInfo" resultMap="MerchantInfoResult">
+        <include refid="selectMerchantInfoVo"/>
+        <where>  
+            <if test="merchId != null  and merchId != '' "> and merch_id = #{merchId}</if>
+             <if test="mchntCnNm != null  and mchntCnNm != '' "> and mchnt_cn_nm = #{mchntCnNm}</if>
+             <if test="mchntCnAbbr != null  and mchntCnAbbr != '' "> and mchnt_cn_abbr = #{mchntCnAbbr}</if>
+             <if test="mchntSvcTp != null  and mchntSvcTp != '' "> and mchnt_svc_tp = #{mchntSvcTp}</if>
+             <if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != '' "> and cup_branch_ins_id_cd = #{cupBranchInsIdCd}</if>
+             <if test="source != null  and source != '' "> and source = #{source}</if>
+             <if test="mchntFacilitator != null  and mchntFacilitator != '' "> and mchnt_facilitator = #{mchntFacilitator}</if>
+             <if test="mchntType != null  and mchntType != '' "> and mchnt_type = #{mchntType}</if>
+             <if test="mchntMainclass != null  and mchntMainclass != '' "> and mchnt_mainclass = #{mchntMainclass}</if>
+             <if test="mchntSubclass != null  and mchntSubclass != '' "> and mchnt_subclass = #{mchntSubclass}</if>
+             <if test="mchntGrade != null  and mchntGrade != '' "> and mchnt_grade = #{mchntGrade}</if>
+             <if test="address != null  and address != '' "> and address = #{address}</if>
+             <if test="acqInsIdCd != null  and acqInsIdCd != '' "> and acq_ins_id_cd = #{acqInsIdCd}</if>
+             <if test="acptInsIdCd != null  and acptInsIdCd != '' "> and acpt_ins_id_cd = #{acptInsIdCd}</if>
+             <if test="platInsIdCd != null  and platInsIdCd != '' "> and plat_ins_id_cd = #{platInsIdCd}</if>
+             <if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != '' "> and acq_access_ins_id_cd = #{acqAccessInsIdCd}</if>
+             <if test="cntryCd != null  and cntryCd != '' "> and cntry_cd = #{cntryCd}</if>
+             <if test="gbRegionId != null  and gbRegionId != '' "> and gb_region_id = #{gbRegionId}</if>
+             <if test="acqRegionCd != null  and acqRegionCd != '' "> and acq_region_cd = #{acqRegionCd}</if>
+             <if test="mchntTp != null  and mchntTp != '' "> and mchnt_tp = #{mchntTp}</if>
+             <if test="regionCd != null  and regionCd != '' "> and region_cd = #{regionCd}</if>
+             <if test="realMchntTp != null  and realMchntTp != '' "> and real_mchnt_tp = #{realMchntTp}</if>
+             <if test="mchntGrp != null  and mchntGrp != '' "> and mchnt_grp = #{mchntGrp}</if>
+             <if test="mchntSt != null  and mchntSt != '' "> and mchnt_st = #{mchntSt}</if>
+             <if test="industryTp != null  and industryTp != '' "> and industry_tp = #{industryTp}</if>
+             <if test="contact != null  and contact != '' "> and contact = #{contact}</if>
+             <if test="phone != null  and phone != '' "> and phone = #{phone}</if>
+             <if test="remark != null  and remark != '' "> and remark = #{remark}</if>
+             <if test="createdBy != null  and createdBy != '' "> and created_by = #{createdBy}</if>
+             <if test="createdTime != null "> and created_time = #{createdTime}</if>
+             <if test="updatedBy != null  and updatedBy != '' "> and updated_by = #{updatedBy}</if>
+             <if test="updatedTime != null "> and updated_time = #{updatedTime}</if>
+         </where>
+    </select>
+    
+    <select id="selectMerchantInfoById" parameterType="String" resultMap="MerchantInfoResult">
+        <include refid="selectMerchantInfoVo"/>
+        where merch_id = #{merchId}
+    </select>
+        
+    <insert id="insertMerchantInfo" parameterType="com.unionpay.dao.model.MerchantInfo">
+        insert into up_merchant_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="merchId != null  and merchId != ''  ">merch_id,</if>
+			<if test="mchntCnNm != null  and mchntCnNm != ''  ">mchnt_cn_nm,</if>
+			<if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">mchnt_cn_abbr,</if>
+			<if test="mchntSvcTp != null  and mchntSvcTp != ''  ">mchnt_svc_tp,</if>
+			<if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">cup_branch_ins_id_cd,</if>
+			<if test="source != null  and source != ''  ">source,</if>
+			<if test="mchntFacilitator != null  and mchntFacilitator != ''  ">mchnt_facilitator,</if>
+			<if test="mchntType != null  and mchntType != ''  ">mchnt_type,</if>
+			<if test="mchntMainclass != null  and mchntMainclass != ''  ">mchnt_mainclass,</if>
+			<if test="mchntSubclass != null  and mchntSubclass != ''  ">mchnt_subclass,</if>
+			<if test="mchntGrade != null  and mchntGrade != ''  ">mchnt_grade,</if>
+			<if test="address != null  and address != ''  ">address,</if>
+			<if test="acqInsIdCd != null  and acqInsIdCd != ''  ">acq_ins_id_cd,</if>
+			<if test="acptInsIdCd != null  and acptInsIdCd != ''  ">acpt_ins_id_cd,</if>
+			<if test="platInsIdCd != null  and platInsIdCd != ''  ">plat_ins_id_cd,</if>
+			<if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">acq_access_ins_id_cd,</if>
+			<if test="cntryCd != null  and cntryCd != ''  ">cntry_cd,</if>
+			<if test="gbRegionId != null  and gbRegionId != ''  ">gb_region_id,</if>
+			<if test="acqRegionCd != null  and acqRegionCd != ''  ">acq_region_cd,</if>
+			<if test="mchntTp != null  and mchntTp != ''  ">mchnt_tp,</if>
+			<if test="regionCd != null  and regionCd != ''  ">region_cd,</if>
+			<if test="realMchntTp != null  and realMchntTp != ''  ">real_mchnt_tp,</if>
+			<if test="mchntGrp != null  and mchntGrp != ''  ">mchnt_grp,</if>
+			<if test="mchntSt != null  and mchntSt != ''  ">mchnt_st,</if>
+			<if test="industryTp != null  and industryTp != ''  ">industry_tp,</if>
+			<if test="contact != null  and contact != ''  ">contact,</if>
+			<if test="phone != null  and phone != ''  ">phone,</if>
+			<if test="remark != null  and remark != ''  ">remark,</if>
+			<if test="createdBy != null  and createdBy != ''  ">created_by,</if>
+			<if test="createdTime != null  ">created_time,</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">updated_by,</if>
+			<if test="updatedTime != null  ">updated_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="merchId != null  and merchId != ''  ">#{merchId},</if>
+			<if test="mchntCnNm != null  and mchntCnNm != ''  ">#{mchntCnNm},</if>
+			<if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">#{mchntCnAbbr},</if>
+			<if test="mchntSvcTp != null  and mchntSvcTp != ''  ">#{mchntSvcTp},</if>
+			<if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">#{cupBranchInsIdCd},</if>
+			<if test="source != null  and source != ''  ">#{source},</if>
+			<if test="mchntFacilitator != null  and mchntFacilitator != ''  ">#{mchntFacilitator},</if>
+			<if test="mchntType != null  and mchntType != ''  ">#{mchntType},</if>
+			<if test="mchntMainclass != null  and mchntMainclass != ''  ">#{mchntMainclass},</if>
+			<if test="mchntSubclass != null  and mchntSubclass != ''  ">#{mchntSubclass},</if>
+			<if test="mchntGrade != null  and mchntGrade != ''  ">#{mchntGrade},</if>
+			<if test="address != null  and address != ''  ">#{address},</if>
+			<if test="acqInsIdCd != null  and acqInsIdCd != ''  ">#{acqInsIdCd},</if>
+			<if test="acptInsIdCd != null  and acptInsIdCd != ''  ">#{acptInsIdCd},</if>
+			<if test="platInsIdCd != null  and platInsIdCd != ''  ">#{platInsIdCd},</if>
+			<if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">#{acqAccessInsIdCd},</if>
+			<if test="cntryCd != null  and cntryCd != ''  ">#{cntryCd},</if>
+			<if test="gbRegionId != null  and gbRegionId != ''  ">#{gbRegionId},</if>
+			<if test="acqRegionCd != null  and acqRegionCd != ''  ">#{acqRegionCd},</if>
+			<if test="mchntTp != null  and mchntTp != ''  ">#{mchntTp},</if>
+			<if test="regionCd != null  and regionCd != ''  ">#{regionCd},</if>
+			<if test="realMchntTp != null  and realMchntTp != ''  ">#{realMchntTp},</if>
+			<if test="mchntGrp != null  and mchntGrp != ''  ">#{mchntGrp},</if>
+			<if test="mchntSt != null  and mchntSt != ''  ">#{mchntSt},</if>
+			<if test="industryTp != null  and industryTp != ''  ">#{industryTp},</if>
+			<if test="contact != null  and contact != ''  ">#{contact},</if>
+			<if test="phone != null  and phone != ''  ">#{phone},</if>
+			<if test="remark != null  and remark != ''  ">#{remark},</if>
+			<if test="createdBy != null  and createdBy != ''  ">#{createdBy},</if>
+			<if test="createdTime != null  ">#{createdTime},</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">#{updatedBy},</if>
+			<if test="updatedTime != null  ">#{updatedTime},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateMerchantInfo" parameterType="com.unionpay.dao.model.MerchantInfo">
+        update up_merchant_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mchntCnNm != null  and mchntCnNm != ''  ">mchnt_cn_nm = #{mchntCnNm},</if>
+            <if test="mchntCnAbbr != null  and mchntCnAbbr != ''  ">mchnt_cn_abbr = #{mchntCnAbbr},</if>
+            <if test="mchntSvcTp != null  and mchntSvcTp != ''  ">mchnt_svc_tp = #{mchntSvcTp},</if>
+            <if test="cupBranchInsIdCd != null  and cupBranchInsIdCd != ''  ">cup_branch_ins_id_cd = #{cupBranchInsIdCd},</if>
+            <if test="source != null  and source != ''  ">source = #{source},</if>
+            <if test="mchntFacilitator != null  and mchntFacilitator != ''  ">mchnt_facilitator = #{mchntFacilitator},</if>
+            <if test="mchntType != null  and mchntType != ''  ">mchnt_type = #{mchntType},</if>
+            <if test="mchntMainclass != null  and mchntMainclass != ''  ">mchnt_mainclass = #{mchntMainclass},</if>
+            <if test="mchntSubclass != null  and mchntSubclass != ''  ">mchnt_subclass = #{mchntSubclass},</if>
+            <if test="mchntGrade != null  and mchntGrade != ''  ">mchnt_grade = #{mchntGrade},</if>
+            <if test="address != null  and address != ''  ">address = #{address},</if>
+            <if test="acqInsIdCd != null  and acqInsIdCd != ''  ">acq_ins_id_cd = #{acqInsIdCd},</if>
+            <if test="acptInsIdCd != null  and acptInsIdCd != ''  ">acpt_ins_id_cd = #{acptInsIdCd},</if>
+            <if test="platInsIdCd != null  and platInsIdCd != ''  ">plat_ins_id_cd = #{platInsIdCd},</if>
+            <if test="acqAccessInsIdCd != null  and acqAccessInsIdCd != ''  ">acq_access_ins_id_cd = #{acqAccessInsIdCd},</if>
+            <if test="cntryCd != null  and cntryCd != ''  ">cntry_cd = #{cntryCd},</if>
+            <if test="gbRegionId != null  and gbRegionId != ''  ">gb_region_id = #{gbRegionId},</if>
+            <if test="acqRegionCd != null  and acqRegionCd != ''  ">acq_region_cd = #{acqRegionCd},</if>
+            <if test="mchntTp != null  and mchntTp != ''  ">mchnt_tp = #{mchntTp},</if>
+            <if test="regionCd != null  and regionCd != ''  ">region_cd = #{regionCd},</if>
+            <if test="realMchntTp != null  and realMchntTp != ''  ">real_mchnt_tp = #{realMchntTp},</if>
+            <if test="mchntGrp != null  and mchntGrp != ''  ">mchnt_grp = #{mchntGrp},</if>
+            <if test="mchntSt != null  and mchntSt != ''  ">mchnt_st = #{mchntSt},</if>
+            <if test="industryTp != null  and industryTp != ''  ">industry_tp = #{industryTp},</if>
+            <if test="contact != null  and contact != ''  ">contact = #{contact},</if>
+            <if test="phone != null  and phone != ''  ">phone = #{phone},</if>
+            <if test="remark != null  and remark != ''  ">remark = #{remark},</if>
+            <if test="createdBy != null  and createdBy != ''  ">created_by = #{createdBy},</if>
+            <if test="createdTime != null  ">created_time = #{createdTime},</if>
+            <if test="updatedBy != null  and updatedBy != ''  ">updated_by = #{updatedBy},</if>
+            <if test="updatedTime != null  ">updated_time = #{updatedTime},</if>
+        </trim>
+        where merch_id = #{merchId}
+    </update>
+
+	<delete id="deleteMerchantInfoById" parameterType="String">
+        delete from up_merchant_info where merch_id = #{merchId}
+    </delete>
+	
+    <delete id="deleteMerchantInfoByIds" parameterType="String">
+        delete from up_merchant_info where merch_id in 
+        <foreach item="merchId" collection="array" open="(" separator="," close=")">
+            #{merchId}
+        </foreach>
+    </delete>
+    
+</mapper>

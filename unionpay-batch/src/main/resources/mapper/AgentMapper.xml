@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unionpay.dao.repository.AgentMapper">
+    
+    <resultMap type="com.unionpay.dao.model.Agent" id="AgentResult">
+        <result property="agentId"    column="agent_id"    />
+        <result property="agentName"    column="agent_name"    />
+        <result property="agentType"    column="agent_type"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="status"    column="status"    />
+        <result property="createdBy"    column="created_by"    />
+        <result property="createdTime"    column="created_time"    />
+        <result property="updatedBy"    column="updated_by"    />
+        <result property="updatedTime"    column="updated_time"    />
+    </resultMap>
+	
+	<sql id="selectAgentVo">
+        select agent_id, agent_name, agent_type, parent_id, status, created_by, created_time, updated_by, updated_time from up_agent
+    </sql>
+	
+    <select id="selectAgentList" parameterType="com.unionpay.dao.model.Agent" resultMap="AgentResult">
+        <include refid="selectAgentVo"/>
+        <where>  
+            <if test="agentId != null  and agentId != '' "> and agent_id = #{agentId}</if>
+             <if test="agentName != null  and agentName != '' "> and agent_name = #{agentName}</if>
+             <if test="agentType != null  and agentType != '' "> and agent_type = #{agentType}</if>
+             <if test="parentId != null  and parentId != '' "> and parent_id = #{parentId}</if>
+             <if test="status != null  and status != '' "> and status = #{status}</if>
+             <if test="createdBy != null  and createdBy != '' "> and created_by = #{createdBy}</if>
+             <if test="createdTime != null "> and created_time = #{createdTime}</if>
+             <if test="updatedBy != null  and updatedBy != '' "> and updated_by = #{updatedBy}</if>
+             <if test="updatedTime != null "> and updated_time = #{updatedTime}</if>
+         </where>
+    </select>
+    
+    <select id="selectAgentById" parameterType="String" resultMap="AgentResult">
+        <include refid="selectAgentVo"/>
+        where agent_id = #{agentId}
+    </select>
+        
+    <insert id="insertAgent" parameterType="com.unionpay.dao.model.Agent">
+        insert into up_agent
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="agentId != null  and agentId != ''  ">agent_id,</if>
+			<if test="agentName != null  and agentName != ''  ">agent_name,</if>
+			<if test="agentType != null  and agentType != ''  ">agent_type,</if>
+			<if test="parentId != null  and parentId != ''  ">parent_id,</if>
+			<if test="status != null  and status != ''  ">status,</if>
+			<if test="createdBy != null  and createdBy != ''  ">created_by,</if>
+			<if test="createdTime != null  ">created_time,</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">updated_by,</if>
+			<if test="updatedTime != null  ">updated_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="agentId != null  and agentId != ''  ">#{agentId},</if>
+			<if test="agentName != null  and agentName != ''  ">#{agentName},</if>
+			<if test="agentType != null  and agentType != ''  ">#{agentType},</if>
+			<if test="parentId != null  and parentId != ''  ">#{parentId},</if>
+			<if test="status != null  and status != ''  ">#{status},</if>
+			<if test="createdBy != null  and createdBy != ''  ">#{createdBy},</if>
+			<if test="createdTime != null  ">#{createdTime},</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">#{updatedBy},</if>
+			<if test="updatedTime != null  ">#{updatedTime},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateAgent" parameterType="com.unionpay.dao.model.Agent">
+        update up_agent
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agentName != null  and agentName != ''  ">agent_name = #{agentName},</if>
+            <if test="agentType != null  and agentType != ''  ">agent_type = #{agentType},</if>
+            <if test="parentId != null  and parentId != ''  ">parent_id = #{parentId},</if>
+            <if test="status != null  and status != ''  ">status = #{status},</if>
+            <if test="createdBy != null  and createdBy != ''  ">created_by = #{createdBy},</if>
+            <if test="createdTime != null  ">created_time = #{createdTime},</if>
+            <if test="updatedBy != null  and updatedBy != ''  ">updated_by = #{updatedBy},</if>
+            <if test="updatedTime != null  ">updated_time = #{updatedTime},</if>
+        </trim>
+        where agent_id = #{agentId}
+    </update>
+
+	<delete id="deleteAgentById" parameterType="String">
+        delete from up_agent where agent_id = #{agentId}
+    </delete>
+	
+    <delete id="deleteAgentByIds" parameterType="String">
+        delete from up_agent where agent_id in 
+        <foreach item="agentId" collection="array" open="(" separator="," close=")">
+            #{agentId}
+        </foreach>
+    </delete>
+    
+</mapper>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unionpay.dao.repository.ICqpMerchantInfoMapper">
+    
+    <resultMap type="com.unionpay.dao.model.CqpMerchantInfo" id="CqpMerchantInfoResult">
+        <result property="mchntCd"    column="mchnt_cd"    />
+        <result property="merchantName"    column="merchantName"    />
+        <result property="serProvId"    column="serProvId"    />
+        <result property="acqOrgCode"    column="acqOrgCode"    />
+        <result property="merId"    column="merId"    />
+        <result property="acqMerId"    column="acqMerId"    />
+        <result property="reqReserved"    column="reqReserved"    />
+        <result property="wechatChannelId"    column="wechatChannelId"    />
+        <result property="alipayChannelId"    column="alipayChannelId"    />
+        <result property="merchantTyp"    column="merchantTyp"    />
+        <result property="businessLicenseCode"    column="businessLicenseCode"    />
+        <result property="businessLicenseName"    column="businessLicenseName"    />
+        <result property="businessLicensePhoto"    column="businessLicensePhoto"    />
+        <result property="businessLicenseExpired"    column="businessLicenseExpired"    />
+        <result property="industryCategoryId"    column="industryCategoryId"    />
+        <result property="businessAddress"    column="businessAddress"    />
+        <result property="province"    column="province"    />
+        <result property="city"    column="city"    />
+        <result property="area"    column="area"    />
+        <result property="storeHeadPhoto"    column="storeHeadPhoto"    />
+        <result property="storeShopPhoto"    column="storeShopPhoto"    />
+        <result property="storeHallPhoto"    column="storeHallPhoto"    />
+        <result property="storeCashierPhoto"    column="storeCashierPhoto"    />
+        <result property="lawyerName"    column="lawyerName"    />
+        <result property="lawyerCertType"    column="lawyerCertType"    />
+        <result property="lawyerCertNo"    column="lawyerCertNo"    />
+        <result property="lawyerCertPhotoFront"    column="lawyerCertPhotoFront"    />
+        <result property="lawyerCertPhotoBack"    column="lawyerCertPhotoBack"    />
+        <result property="contactPerson"    column="contactPerson"    />
+        <result property="contactPhone"    column="contactPhone"    />
+        <result property="serviceTel"    column="serviceTel"    />
+        <result property="email"    column="email"    />
+        <result property="settleAccountType"    column="settleAccountType"    />
+        <result property="settleAccountNo"    column="settleAccountNo"    />
+        <result property="settleAccount"    column="settleAccount"    />
+        <result property="settlePeriod"    column="settlePeriod"    />
+        <result property="openingLicenseAccountPhoto"    column="openingLicenseAccountPhoto"    />
+        <result property="acquiringAgreementPhoto"    column="acquiringAgreementPhoto"    />
+        <result property="settleAuthLetterPhoto"    column="settleAuthLetterPhoto"    />
+        <result property="bankCardPhotoFront"    column="bankCardPhotoFront"    />
+        <result property="bankCardPhotoBack"    column="bankCardPhotoBack"    />
+        <result property="openBank"    column="openBank"    />
+        <result property="openSubBank"    column="openSubBank"    />
+        <result property="openBankCode"    column="openBankCode"    />
+        <result property="openBankReservePhone"    column="openBankReservePhone"    />
+        <result property="authorizedPersonCertNo"    column="authorizedPersonCertNo"    />
+        <result property="authorizedPersonCertType"    column="authorizedPersonCertType"    />
+        <result property="authorizedCertPhotoFront"    column="authorizedCertPhotoFront"    />
+        <result property="authorizedCertPhotoBack"    column="authorizedCertPhotoBack"    />
+        <result property="reserve1"    column="reserve1"    />
+        <result property="feeRateAlipay"    column="feeRateAlipay"    />
+        <result property="bankCardRateLevel1"    column="bankCardRateLevel1"    />
+        <result property="bankCardRateLevel2"    column="bankCardRateLevel2"    />
+        <result property="feeRateWechatpay"    column="feeRateWechatpay"    />
+        <result property="feeRateUnionpayDebit"    column="feeRateUnionpayDebit"    />
+        <result property="feeRateUnionpayDebitCap"    column="feeRateUnionpayDebitCap"    />
+        <result property="feeRateUnionpayCredit"    column="feeRateUnionpayCredit"    />
+    </resultMap>
+	
+	<sql id="selectCqpMerchantInfoVo">
+        select mchnt_cd, merchantName, serProvId, acqOrgCode, merId, acqMerId, reqReserved, wechatChannelId, alipayChannelId, merchantTyp, businessLicenseCode, businessLicenseName, businessLicensePhoto, businessLicenseExpired, industryCategoryId, businessAddress, province, city, area, storeHeadPhoto, storeShopPhoto, storeHallPhoto, storeCashierPhoto, lawyerName, lawyerCertType, lawyerCertNo, lawyerCertPhotoFront, lawyerCertPhotoBack, contactPerson, contactPhone, serviceTel, email, settleAccountType, settleAccountNo, settleAccount, settlePeriod, openingLicenseAccountPhoto, acquiringAgreementPhoto, settleAuthLetterPhoto, bankCardPhotoFront, bankCardPhotoBack, openBank, openSubBank, openBankCode, openBankReservePhone, authorizedPersonCertNo, authorizedPersonCertType, authorizedCertPhotoFront, authorizedCertPhotoBack, reserve1, feeRateAlipay, bankCardRateLevel1, bankCardRateLevel2, feeRateWechatpay, feeRateUnionpayDebit, feeRateUnionpayDebitCap, feeRateUnionpayCredit from cqp_merchant_info
+    </sql>
+	
+    <select id="selectCqpMerchantInfoList" parameterType="com.unionpay.dao.model.CqpMerchantInfo" resultMap="CqpMerchantInfoResult">
+        <include refid="selectCqpMerchantInfoVo"/>
+        <where>  
+            <if test="mchntCd != null  and mchntCd != '' "> and mchnt_cd = #{mchntCd}</if>
+             <if test="merchantName != null  and merchantName != '' "> and merchantName = #{merchantName}</if>
+             <if test="serProvId != null  and serProvId != '' "> and serProvId = #{serProvId}</if>
+             <if test="acqOrgCode != null  and acqOrgCode != '' "> and acqOrgCode = #{acqOrgCode}</if>
+             <if test="merId != null  and merId != '' "> and merId = #{merId}</if>
+             <if test="acqMerId != null  and acqMerId != '' "> and acqMerId = #{acqMerId}</if>
+             <if test="reqReserved != null  and reqReserved != '' "> and reqReserved = #{reqReserved}</if>
+             <if test="wechatChannelId != null  and wechatChannelId != '' "> and wechatChannelId = #{wechatChannelId}</if>
+             <if test="alipayChannelId != null  and alipayChannelId != '' "> and alipayChannelId = #{alipayChannelId}</if>
+             <if test="merchantTyp != null  and merchantTyp != '' "> and merchantTyp = #{merchantTyp}</if>
+             <if test="businessLicenseCode != null  and businessLicenseCode != '' "> and businessLicenseCode = #{businessLicenseCode}</if>
+             <if test="businessLicenseName != null  and businessLicenseName != '' "> and businessLicenseName = #{businessLicenseName}</if>
+             <if test="businessLicensePhoto != null  and businessLicensePhoto != '' "> and businessLicensePhoto = #{businessLicensePhoto}</if>
+             <if test="businessLicenseExpired != null  and businessLicenseExpired != '' "> and businessLicenseExpired = #{businessLicenseExpired}</if>
+             <if test="industryCategoryId != null  and industryCategoryId != '' "> and industryCategoryId = #{industryCategoryId}</if>
+             <if test="businessAddress != null  and businessAddress != '' "> and businessAddress = #{businessAddress}</if>
+             <if test="province != null  and province != '' "> and province = #{province}</if>
+             <if test="city != null  and city != '' "> and city = #{city}</if>
+             <if test="area != null  and area != '' "> and area = #{area}</if>
+             <if test="storeHeadPhoto != null  and storeHeadPhoto != '' "> and storeHeadPhoto = #{storeHeadPhoto}</if>
+             <if test="storeShopPhoto != null  and storeShopPhoto != '' "> and storeShopPhoto = #{storeShopPhoto}</if>
+             <if test="storeHallPhoto != null  and storeHallPhoto != '' "> and storeHallPhoto = #{storeHallPhoto}</if>
+             <if test="storeCashierPhoto != null  and storeCashierPhoto != '' "> and storeCashierPhoto = #{storeCashierPhoto}</if>
+             <if test="lawyerName != null  and lawyerName != '' "> and lawyerName = #{lawyerName}</if>
+             <if test="lawyerCertType != null  and lawyerCertType != '' "> and lawyerCertType = #{lawyerCertType}</if>
+             <if test="lawyerCertNo != null  and lawyerCertNo != '' "> and lawyerCertNo = #{lawyerCertNo}</if>
+             <if test="lawyerCertPhotoFront != null  and lawyerCertPhotoFront != '' "> and lawyerCertPhotoFront = #{lawyerCertPhotoFront}</if>
+             <if test="lawyerCertPhotoBack != null  and lawyerCertPhotoBack != '' "> and lawyerCertPhotoBack = #{lawyerCertPhotoBack}</if>
+             <if test="contactPerson != null  and contactPerson != '' "> and contactPerson = #{contactPerson}</if>
+             <if test="contactPhone != null  and contactPhone != '' "> and contactPhone = #{contactPhone}</if>
+             <if test="serviceTel != null  and serviceTel != '' "> and serviceTel = #{serviceTel}</if>
+             <if test="email != null  and email != '' "> and email = #{email}</if>
+             <if test="settleAccountType != null  and settleAccountType != '' "> and settleAccountType = #{settleAccountType}</if>
+             <if test="settleAccountNo != null  and settleAccountNo != '' "> and settleAccountNo = #{settleAccountNo}</if>
+             <if test="settleAccount != null  and settleAccount != '' "> and settleAccount = #{settleAccount}</if>
+             <if test="settlePeriod != null  and settlePeriod != '' "> and settlePeriod = #{settlePeriod}</if>
+             <if test="openingLicenseAccountPhoto != null  and openingLicenseAccountPhoto != '' "> and openingLicenseAccountPhoto = #{openingLicenseAccountPhoto}</if>
+             <if test="acquiringAgreementPhoto != null  and acquiringAgreementPhoto != '' "> and acquiringAgreementPhoto = #{acquiringAgreementPhoto}</if>
+             <if test="settleAuthLetterPhoto != null  and settleAuthLetterPhoto != '' "> and settleAuthLetterPhoto = #{settleAuthLetterPhoto}</if>
+             <if test="bankCardPhotoFront != null  and bankCardPhotoFront != '' "> and bankCardPhotoFront = #{bankCardPhotoFront}</if>
+             <if test="bankCardPhotoBack != null  and bankCardPhotoBack != '' "> and bankCardPhotoBack = #{bankCardPhotoBack}</if>
+             <if test="openBank != null  and openBank != '' "> and openBank = #{openBank}</if>
+             <if test="openSubBank != null  and openSubBank != '' "> and openSubBank = #{openSubBank}</if>
+             <if test="openBankCode != null  and openBankCode != '' "> and openBankCode = #{openBankCode}</if>
+             <if test="openBankReservePhone != null  and openBankReservePhone != '' "> and openBankReservePhone = #{openBankReservePhone}</if>
+             <if test="authorizedPersonCertNo != null  and authorizedPersonCertNo != '' "> and authorizedPersonCertNo = #{authorizedPersonCertNo}</if>
+             <if test="authorizedPersonCertType != null  and authorizedPersonCertType != '' "> and authorizedPersonCertType = #{authorizedPersonCertType}</if>
+             <if test="authorizedCertPhotoFront != null  and authorizedCertPhotoFront != '' "> and authorizedCertPhotoFront = #{authorizedCertPhotoFront}</if>
+             <if test="authorizedCertPhotoBack != null  and authorizedCertPhotoBack != '' "> and authorizedCertPhotoBack = #{authorizedCertPhotoBack}</if>
+             <if test="reserve1 != null  and reserve1 != '' "> and reserve1 = #{reserve1}</if>
+             <if test="feeRateAlipay != null  and feeRateAlipay != '' "> and feeRateAlipay = #{feeRateAlipay}</if>
+             <if test="bankCardRateLevel1 != null  and bankCardRateLevel1 != '' "> and bankCardRateLevel1 = #{bankCardRateLevel1}</if>
+             <if test="bankCardRateLevel2 != null  and bankCardRateLevel2 != '' "> and bankCardRateLevel2 = #{bankCardRateLevel2}</if>
+             <if test="feeRateWechatpay != null  and feeRateWechatpay != '' "> and feeRateWechatpay = #{feeRateWechatpay}</if>
+             <if test="feeRateUnionpayDebit != null  and feeRateUnionpayDebit != '' "> and feeRateUnionpayDebit = #{feeRateUnionpayDebit}</if>
+             <if test="feeRateUnionpayDebitCap != null  and feeRateUnionpayDebitCap != '' "> and feeRateUnionpayDebitCap = #{feeRateUnionpayDebitCap}</if>
+             <if test="feeRateUnionpayCredit != null  and feeRateUnionpayCredit != '' "> and feeRateUnionpayCredit = #{feeRateUnionpayCredit}</if>
+         </where>
+    </select>
+    
+    <select id="selectCqpMerchantInfoById" parameterType="String" resultMap="CqpMerchantInfoResult">
+        <include refid="selectCqpMerchantInfoVo"/>
+        where mchnt_cd = #{mchntCd}
+    </select>
+        
+    <insert id="insertCqpMerchantInfo" parameterType="com.unionpay.dao.model.CqpMerchantInfo">
+        insert into cqp_merchant_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="mchntCd != null  and mchntCd != ''  ">mchnt_cd,</if>
+			<if test="merchantName != null  and merchantName != ''  ">merchantName,</if>
+			<if test="serProvId != null  and serProvId != ''  ">serProvId,</if>
+			<if test="acqOrgCode != null  and acqOrgCode != ''  ">acqOrgCode,</if>
+			<if test="merId != null  and merId != ''  ">merId,</if>
+			<if test="acqMerId != null  and acqMerId != ''  ">acqMerId,</if>
+			<if test="reqReserved != null  and reqReserved != ''  ">reqReserved,</if>
+			<if test="wechatChannelId != null  and wechatChannelId != ''  ">wechatChannelId,</if>
+			<if test="alipayChannelId != null  and alipayChannelId != ''  ">alipayChannelId,</if>
+			<if test="merchantTyp != null  and merchantTyp != ''  ">merchantTyp,</if>
+			<if test="businessLicenseCode != null  and businessLicenseCode != ''  ">businessLicenseCode,</if>
+			<if test="businessLicenseName != null  and businessLicenseName != ''  ">businessLicenseName,</if>
+			<if test="businessLicensePhoto != null  and businessLicensePhoto != ''  ">businessLicensePhoto,</if>
+			<if test="businessLicenseExpired != null  and businessLicenseExpired != ''  ">businessLicenseExpired,</if>
+			<if test="industryCategoryId != null  and industryCategoryId != ''  ">industryCategoryId,</if>
+			<if test="businessAddress != null  and businessAddress != ''  ">businessAddress,</if>
+			<if test="province != null  and province != ''  ">province,</if>
+			<if test="city != null  and city != ''  ">city,</if>
+			<if test="area != null  and area != ''  ">area,</if>
+			<if test="storeHeadPhoto != null  and storeHeadPhoto != ''  ">storeHeadPhoto,</if>
+			<if test="storeShopPhoto != null  and storeShopPhoto != ''  ">storeShopPhoto,</if>
+			<if test="storeHallPhoto != null  and storeHallPhoto != ''  ">storeHallPhoto,</if>
+			<if test="storeCashierPhoto != null  and storeCashierPhoto != ''  ">storeCashierPhoto,</if>
+			<if test="lawyerName != null  and lawyerName != ''  ">lawyerName,</if>
+			<if test="lawyerCertType != null  and lawyerCertType != ''  ">lawyerCertType,</if>
+			<if test="lawyerCertNo != null  and lawyerCertNo != ''  ">lawyerCertNo,</if>
+			<if test="lawyerCertPhotoFront != null  and lawyerCertPhotoFront != ''  ">lawyerCertPhotoFront,</if>
+			<if test="lawyerCertPhotoBack != null  and lawyerCertPhotoBack != ''  ">lawyerCertPhotoBack,</if>
+			<if test="contactPerson != null  and contactPerson != ''  ">contactPerson,</if>
+			<if test="contactPhone != null  and contactPhone != ''  ">contactPhone,</if>
+			<if test="serviceTel != null  and serviceTel != ''  ">serviceTel,</if>
+			<if test="email != null  and email != ''  ">email,</if>
+			<if test="settleAccountType != null  and settleAccountType != ''  ">settleAccountType,</if>
+			<if test="settleAccountNo != null  and settleAccountNo != ''  ">settleAccountNo,</if>
+			<if test="settleAccount != null  and settleAccount != ''  ">settleAccount,</if>
+			<if test="settlePeriod != null  and settlePeriod != ''  ">settlePeriod,</if>
+			<if test="openingLicenseAccountPhoto != null  and openingLicenseAccountPhoto != ''  ">openingLicenseAccountPhoto,</if>
+			<if test="acquiringAgreementPhoto != null  and acquiringAgreementPhoto != ''  ">acquiringAgreementPhoto,</if>
+			<if test="settleAuthLetterPhoto != null  and settleAuthLetterPhoto != ''  ">settleAuthLetterPhoto,</if>
+			<if test="bankCardPhotoFront != null  and bankCardPhotoFront != ''  ">bankCardPhotoFront,</if>
+			<if test="bankCardPhotoBack != null  and bankCardPhotoBack != ''  ">bankCardPhotoBack,</if>
+			<if test="openBank != null  and openBank != ''  ">openBank,</if>
+			<if test="openSubBank != null  and openSubBank != ''  ">openSubBank,</if>
+			<if test="openBankCode != null  and openBankCode != ''  ">openBankCode,</if>
+			<if test="openBankReservePhone != null  and openBankReservePhone != ''  ">openBankReservePhone,</if>
+			<if test="authorizedPersonCertNo != null  and authorizedPersonCertNo != ''  ">authorizedPersonCertNo,</if>
+			<if test="authorizedPersonCertType != null  and authorizedPersonCertType != ''  ">authorizedPersonCertType,</if>
+			<if test="authorizedCertPhotoFront != null  and authorizedCertPhotoFront != ''  ">authorizedCertPhotoFront,</if>
+			<if test="authorizedCertPhotoBack != null  and authorizedCertPhotoBack != ''  ">authorizedCertPhotoBack,</if>
+			<if test="reserve1 != null  and reserve1 != ''  ">reserve1,</if>
+			<if test="feeRateAlipay != null  and feeRateAlipay != ''  ">feeRateAlipay,</if>
+			<if test="bankCardRateLevel1 != null  and bankCardRateLevel1 != ''  ">bankCardRateLevel1,</if>
+			<if test="bankCardRateLevel2 != null  and bankCardRateLevel2 != ''  ">bankCardRateLevel2,</if>
+			<if test="feeRateWechatpay != null  and feeRateWechatpay != ''  ">feeRateWechatpay,</if>
+			<if test="feeRateUnionpayDebit != null  and feeRateUnionpayDebit != ''  ">feeRateUnionpayDebit,</if>
+			<if test="feeRateUnionpayDebitCap != null  and feeRateUnionpayDebitCap != ''  ">feeRateUnionpayDebitCap,</if>
+			<if test="feeRateUnionpayCredit != null  and feeRateUnionpayCredit != ''  ">feeRateUnionpayCredit,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="mchntCd != null  and mchntCd != ''  ">#{mchntCd},</if>
+			<if test="merchantName != null  and merchantName != ''  ">#{merchantName},</if>
+			<if test="serProvId != null  and serProvId != ''  ">#{serProvId},</if>
+			<if test="acqOrgCode != null  and acqOrgCode != ''  ">#{acqOrgCode},</if>
+			<if test="merId != null  and merId != ''  ">#{merId},</if>
+			<if test="acqMerId != null  and acqMerId != ''  ">#{acqMerId},</if>
+			<if test="reqReserved != null  and reqReserved != ''  ">#{reqReserved},</if>
+			<if test="wechatChannelId != null  and wechatChannelId != ''  ">#{wechatChannelId},</if>
+			<if test="alipayChannelId != null  and alipayChannelId != ''  ">#{alipayChannelId},</if>
+			<if test="merchantTyp != null  and merchantTyp != ''  ">#{merchantTyp},</if>
+			<if test="businessLicenseCode != null  and businessLicenseCode != ''  ">#{businessLicenseCode},</if>
+			<if test="businessLicenseName != null  and businessLicenseName != ''  ">#{businessLicenseName},</if>
+			<if test="businessLicensePhoto != null  and businessLicensePhoto != ''  ">#{businessLicensePhoto},</if>
+			<if test="businessLicenseExpired != null  and businessLicenseExpired != ''  ">#{businessLicenseExpired},</if>
+			<if test="industryCategoryId != null  and industryCategoryId != ''  ">#{industryCategoryId},</if>
+			<if test="businessAddress != null  and businessAddress != ''  ">#{businessAddress},</if>
+			<if test="province != null  and province != ''  ">#{province},</if>
+			<if test="city != null  and city != ''  ">#{city},</if>
+			<if test="area != null  and area != ''  ">#{area},</if>
+			<if test="storeHeadPhoto != null  and storeHeadPhoto != ''  ">#{storeHeadPhoto},</if>
+			<if test="storeShopPhoto != null  and storeShopPhoto != ''  ">#{storeShopPhoto},</if>
+			<if test="storeHallPhoto != null  and storeHallPhoto != ''  ">#{storeHallPhoto},</if>
+			<if test="storeCashierPhoto != null  and storeCashierPhoto != ''  ">#{storeCashierPhoto},</if>
+			<if test="lawyerName != null  and lawyerName != ''  ">#{lawyerName},</if>
+			<if test="lawyerCertType != null  and lawyerCertType != ''  ">#{lawyerCertType},</if>
+			<if test="lawyerCertNo != null  and lawyerCertNo != ''  ">#{lawyerCertNo},</if>
+			<if test="lawyerCertPhotoFront != null  and lawyerCertPhotoFront != ''  ">#{lawyerCertPhotoFront},</if>
+			<if test="lawyerCertPhotoBack != null  and lawyerCertPhotoBack != ''  ">#{lawyerCertPhotoBack},</if>
+			<if test="contactPerson != null  and contactPerson != ''  ">#{contactPerson},</if>
+			<if test="contactPhone != null  and contactPhone != ''  ">#{contactPhone},</if>
+			<if test="serviceTel != null  and serviceTel != ''  ">#{serviceTel},</if>
+			<if test="email != null  and email != ''  ">#{email},</if>
+			<if test="settleAccountType != null  and settleAccountType != ''  ">#{settleAccountType},</if>
+			<if test="settleAccountNo != null  and settleAccountNo != ''  ">#{settleAccountNo},</if>
+			<if test="settleAccount != null  and settleAccount != ''  ">#{settleAccount},</if>
+			<if test="settlePeriod != null  and settlePeriod != ''  ">#{settlePeriod},</if>
+			<if test="openingLicenseAccountPhoto != null  and openingLicenseAccountPhoto != ''  ">#{openingLicenseAccountPhoto},</if>
+			<if test="acquiringAgreementPhoto != null  and acquiringAgreementPhoto != ''  ">#{acquiringAgreementPhoto},</if>
+			<if test="settleAuthLetterPhoto != null  and settleAuthLetterPhoto != ''  ">#{settleAuthLetterPhoto},</if>
+			<if test="bankCardPhotoFront != null  and bankCardPhotoFront != ''  ">#{bankCardPhotoFront},</if>
+			<if test="bankCardPhotoBack != null  and bankCardPhotoBack != ''  ">#{bankCardPhotoBack},</if>
+			<if test="openBank != null  and openBank != ''  ">#{openBank},</if>
+			<if test="openSubBank != null  and openSubBank != ''  ">#{openSubBank},</if>
+			<if test="openBankCode != null  and openBankCode != ''  ">#{openBankCode},</if>
+			<if test="openBankReservePhone != null  and openBankReservePhone != ''  ">#{openBankReservePhone},</if>
+			<if test="authorizedPersonCertNo != null  and authorizedPersonCertNo != ''  ">#{authorizedPersonCertNo},</if>
+			<if test="authorizedPersonCertType != null  and authorizedPersonCertType != ''  ">#{authorizedPersonCertType},</if>
+			<if test="authorizedCertPhotoFront != null  and authorizedCertPhotoFront != ''  ">#{authorizedCertPhotoFront},</if>
+			<if test="authorizedCertPhotoBack != null  and authorizedCertPhotoBack != ''  ">#{authorizedCertPhotoBack},</if>
+			<if test="reserve1 != null  and reserve1 != ''  ">#{reserve1},</if>
+			<if test="feeRateAlipay != null  and feeRateAlipay != ''  ">#{feeRateAlipay},</if>
+			<if test="bankCardRateLevel1 != null  and bankCardRateLevel1 != ''  ">#{bankCardRateLevel1},</if>
+			<if test="bankCardRateLevel2 != null  and bankCardRateLevel2 != ''  ">#{bankCardRateLevel2},</if>
+			<if test="feeRateWechatpay != null  and feeRateWechatpay != ''  ">#{feeRateWechatpay},</if>
+			<if test="feeRateUnionpayDebit != null  and feeRateUnionpayDebit != ''  ">#{feeRateUnionpayDebit},</if>
+			<if test="feeRateUnionpayDebitCap != null  and feeRateUnionpayDebitCap != ''  ">#{feeRateUnionpayDebitCap},</if>
+			<if test="feeRateUnionpayCredit != null  and feeRateUnionpayCredit != ''  ">#{feeRateUnionpayCredit},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateCqpMerchantInfo" parameterType="com.unionpay.dao.model.CqpMerchantInfo">
+        update cqp_merchant_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="merchantName != null  and merchantName != ''  ">merchantName = #{merchantName},</if>
+            <if test="serProvId != null  and serProvId != ''  ">serProvId = #{serProvId},</if>
+            <if test="acqOrgCode != null  and acqOrgCode != ''  ">acqOrgCode = #{acqOrgCode},</if>
+            <if test="merId != null  and merId != ''  ">merId = #{merId},</if>
+            <if test="acqMerId != null  and acqMerId != ''  ">acqMerId = #{acqMerId},</if>
+            <if test="reqReserved != null  and reqReserved != ''  ">reqReserved = #{reqReserved},</if>
+            <if test="wechatChannelId != null  and wechatChannelId != ''  ">wechatChannelId = #{wechatChannelId},</if>
+            <if test="alipayChannelId != null  and alipayChannelId != ''  ">alipayChannelId = #{alipayChannelId},</if>
+            <if test="merchantTyp != null  and merchantTyp != ''  ">merchantTyp = #{merchantTyp},</if>
+            <if test="businessLicenseCode != null  and businessLicenseCode != ''  ">businessLicenseCode = #{businessLicenseCode},</if>
+            <if test="businessLicenseName != null  and businessLicenseName != ''  ">businessLicenseName = #{businessLicenseName},</if>
+            <if test="businessLicensePhoto != null  and businessLicensePhoto != ''  ">businessLicensePhoto = #{businessLicensePhoto},</if>
+            <if test="businessLicenseExpired != null  and businessLicenseExpired != ''  ">businessLicenseExpired = #{businessLicenseExpired},</if>
+            <if test="industryCategoryId != null  and industryCategoryId != ''  ">industryCategoryId = #{industryCategoryId},</if>
+            <if test="businessAddress != null  and businessAddress != ''  ">businessAddress = #{businessAddress},</if>
+            <if test="province != null  and province != ''  ">province = #{province},</if>
+            <if test="city != null  and city != ''  ">city = #{city},</if>
+            <if test="area != null  and area != ''  ">area = #{area},</if>
+            <if test="storeHeadPhoto != null  and storeHeadPhoto != ''  ">storeHeadPhoto = #{storeHeadPhoto},</if>
+            <if test="storeShopPhoto != null  and storeShopPhoto != ''  ">storeShopPhoto = #{storeShopPhoto},</if>
+            <if test="storeHallPhoto != null  and storeHallPhoto != ''  ">storeHallPhoto = #{storeHallPhoto},</if>
+            <if test="storeCashierPhoto != null  and storeCashierPhoto != ''  ">storeCashierPhoto = #{storeCashierPhoto},</if>
+            <if test="lawyerName != null  and lawyerName != ''  ">lawyerName = #{lawyerName},</if>
+            <if test="lawyerCertType != null  and lawyerCertType != ''  ">lawyerCertType = #{lawyerCertType},</if>
+            <if test="lawyerCertNo != null  and lawyerCertNo != ''  ">lawyerCertNo = #{lawyerCertNo},</if>
+            <if test="lawyerCertPhotoFront != null  and lawyerCertPhotoFront != ''  ">lawyerCertPhotoFront = #{lawyerCertPhotoFront},</if>
+            <if test="lawyerCertPhotoBack != null  and lawyerCertPhotoBack != ''  ">lawyerCertPhotoBack = #{lawyerCertPhotoBack},</if>
+            <if test="contactPerson != null  and contactPerson != ''  ">contactPerson = #{contactPerson},</if>
+            <if test="contactPhone != null  and contactPhone != ''  ">contactPhone = #{contactPhone},</if>
+            <if test="serviceTel != null  and serviceTel != ''  ">serviceTel = #{serviceTel},</if>
+            <if test="email != null  and email != ''  ">email = #{email},</if>
+            <if test="settleAccountType != null  and settleAccountType != ''  ">settleAccountType = #{settleAccountType},</if>
+            <if test="settleAccountNo != null  and settleAccountNo != ''  ">settleAccountNo = #{settleAccountNo},</if>
+            <if test="settleAccount != null  and settleAccount != ''  ">settleAccount = #{settleAccount},</if>
+            <if test="settlePeriod != null  and settlePeriod != ''  ">settlePeriod = #{settlePeriod},</if>
+            <if test="openingLicenseAccountPhoto != null  and openingLicenseAccountPhoto != ''  ">openingLicenseAccountPhoto = #{openingLicenseAccountPhoto},</if>
+            <if test="acquiringAgreementPhoto != null  and acquiringAgreementPhoto != ''  ">acquiringAgreementPhoto = #{acquiringAgreementPhoto},</if>
+            <if test="settleAuthLetterPhoto != null  and settleAuthLetterPhoto != ''  ">settleAuthLetterPhoto = #{settleAuthLetterPhoto},</if>
+            <if test="bankCardPhotoFront != null  and bankCardPhotoFront != ''  ">bankCardPhotoFront = #{bankCardPhotoFront},</if>
+            <if test="bankCardPhotoBack != null  and bankCardPhotoBack != ''  ">bankCardPhotoBack = #{bankCardPhotoBack},</if>
+            <if test="openBank != null  and openBank != ''  ">openBank = #{openBank},</if>
+            <if test="openSubBank != null  and openSubBank != ''  ">openSubBank = #{openSubBank},</if>
+            <if test="openBankCode != null  and openBankCode != ''  ">openBankCode = #{openBankCode},</if>
+            <if test="openBankReservePhone != null  and openBankReservePhone != ''  ">openBankReservePhone = #{openBankReservePhone},</if>
+            <if test="authorizedPersonCertNo != null  and authorizedPersonCertNo != ''  ">authorizedPersonCertNo = #{authorizedPersonCertNo},</if>
+            <if test="authorizedPersonCertType != null  and authorizedPersonCertType != ''  ">authorizedPersonCertType = #{authorizedPersonCertType},</if>
+            <if test="authorizedCertPhotoFront != null  and authorizedCertPhotoFront != ''  ">authorizedCertPhotoFront = #{authorizedCertPhotoFront},</if>
+            <if test="authorizedCertPhotoBack != null  and authorizedCertPhotoBack != ''  ">authorizedCertPhotoBack = #{authorizedCertPhotoBack},</if>
+            <if test="reserve1 != null  and reserve1 != ''  ">reserve1 = #{reserve1},</if>
+            <if test="feeRateAlipay != null  and feeRateAlipay != ''  ">feeRateAlipay = #{feeRateAlipay},</if>
+            <if test="bankCardRateLevel1 != null  and bankCardRateLevel1 != ''  ">bankCardRateLevel1 = #{bankCardRateLevel1},</if>
+            <if test="bankCardRateLevel2 != null  and bankCardRateLevel2 != ''  ">bankCardRateLevel2 = #{bankCardRateLevel2},</if>
+            <if test="feeRateWechatpay != null  and feeRateWechatpay != ''  ">feeRateWechatpay = #{feeRateWechatpay},</if>
+            <if test="feeRateUnionpayDebit != null  and feeRateUnionpayDebit != ''  ">feeRateUnionpayDebit = #{feeRateUnionpayDebit},</if>
+            <if test="feeRateUnionpayDebitCap != null  and feeRateUnionpayDebitCap != ''  ">feeRateUnionpayDebitCap = #{feeRateUnionpayDebitCap},</if>
+            <if test="feeRateUnionpayCredit != null  and feeRateUnionpayCredit != ''  ">feeRateUnionpayCredit = #{feeRateUnionpayCredit},</if>
+        </trim>
+        where mchnt_cd = #{mchntCd}
+    </update>
+
+	<delete id="deleteCqpMerchantInfoById" parameterType="String">
+        delete from cqp_merchant_info where mchnt_cd = #{mchntCd}
+    </delete>
+	
+    <delete id="deleteCqpMerchantInfoByIds" parameterType="String">
+        delete from cqp_merchant_info where mchnt_cd in 
+        <foreach item="mchntCd" collection="array" open="(" separator="," close=")">
+            #{mchntCd}
+        </foreach>
+    </delete>
+    
+</mapper>
