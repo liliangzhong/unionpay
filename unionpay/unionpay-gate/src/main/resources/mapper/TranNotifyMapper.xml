@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.repository.TranNotifyMapper">
+    
+    <resultMap type="com.yh.dao.model.TranNotify" id="TranNotifyResult">
+        <result property="notifyId"    column="notify_id"    />
+        <result property="notifyContent"    column="notify_content"    />
+        <result property="tranNo"    column="tran_no"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="merchId"    column="merch_id"    />
+        <result property="termId"    column="term_id"    />
+        <result property="vboxId"    column="vbox_id"    />
+        <result property="voiceName"    column="voice_name"    />
+        <result property="voiceText"    column="voice_text"    />
+        <result property="notifyVoice"    column="notify_voice"    />
+        <result property="voiceReqTime"    column="voice_req_time"    />
+        <result property="voiceRespTime"    column="voice_resp_time"    />
+        <result property="sendTime"    column="send_time"    />
+        <result property="sendFlag"    column="send_flag"    />
+    </resultMap>
+	
+	<sql id="selectTranNotifyVo">
+        select notify_id, notify_content, tran_no, create_time, merch_id, term_id, vbox_id, voice_name, voice_text, notify_voice, voice_req_time, voice_resp_time, send_time, send_flag from up_tran_notify
+    </sql>
+	
+    <select id="selectTranNotifyList" parameterType="com.yh.dao.model.TranNotify" resultMap="TranNotifyResult">
+        <include refid="selectTranNotifyVo"/>
+        <where>  
+            <if test="notifyId != null  and notifyId != '' "> and notify_id = #{notifyId}</if>
+             <if test="notifyContent != null  and notifyContent != '' "> and notify_content = #{notifyContent}</if>
+             <if test="tranNo != null  and tranNo != '' "> and tran_no = #{tranNo}</if>
+             <if test="createTime != null "> and create_time = #{createTime}</if>
+             <if test="merchId != null  and merchId != '' "> and merch_id = #{merchId}</if>
+             <if test="termId != null  and termId != '' "> and term_id = #{termId}</if>
+             <if test="vboxId != null  and vboxId != '' "> and vbox_id = #{vboxId}</if>
+             <if test="voiceName != null  and voiceName != '' "> and voice_name = #{voiceName}</if>
+             <if test="voiceText != null  and voiceText != '' "> and voice_text = #{voiceText}</if>
+             <if test="notifyVoice != null "> and notify_voice = #{notifyVoice}</if>
+             <if test="voiceReqTime != null "> and voice_req_time = #{voiceReqTime}</if>
+             <if test="voiceRespTime != null "> and voice_resp_time = #{voiceRespTime}</if>
+             <if test="sendTime != null "> and send_time = #{sendTime}</if>
+             <if test="sendFlag != null  and sendFlag != '' "> and send_flag = #{sendFlag}</if>
+         </where>
+    </select>
+    
+    <select id="selectTranNotifyById" parameterType="String" resultMap="TranNotifyResult">
+        <include refid="selectTranNotifyVo"/>
+        where notify_id = #{notifyId}
+    </select>
+    
+    <select id="findTransData" parameterType="com.yh.dao.model.TranNotify" resultMap="TranNotifyResult">
+        select  notify_id, tran_no, merch_id from up_tran_notify
+        where tran_no = #{tranNo}
+    </select>
+        
+    <insert id="insertTranNotify" parameterType="com.yh.dao.model.TranNotify">
+        insert into up_tran_notify
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="notifyId != null  and notifyId != ''  ">notify_id,</if>
+			<if test="notifyContent != null  and notifyContent != ''  ">notify_content,</if>
+			<if test="tranNo != null  and tranNo != ''  ">tran_no,</if>
+			<if test="createTime != null  ">create_time,</if>
+			<if test="merchId != null  and merchId != ''  ">merch_id,</if>
+			<if test="termId != null  and termId != ''  ">term_id,</if>
+			<if test="vboxId != null  and vboxId != ''  ">vbox_id,</if>
+			<if test="voiceName != null  and voiceName != ''  ">voice_name,</if>
+			<if test="voiceText != null  and voiceText != ''  ">voice_text,</if>
+			<if test="notifyVoice != null  ">notify_voice,</if>
+			<if test="voiceReqTime != null  ">voice_req_time,</if>
+			<if test="voiceRespTime != null  ">voice_resp_time,</if>
+			<if test="sendTime != null  ">send_time,</if>
+			<if test="sendFlag != null  and sendFlag != ''  ">send_flag,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="notifyId != null  and notifyId != ''  ">#{notifyId},</if>
+			<if test="notifyContent != null  and notifyContent != ''  ">#{notifyContent},</if>
+			<if test="tranNo != null  and tranNo != ''  ">#{tranNo},</if>
+			<if test="createTime != null  ">#{createTime},</if>
+			<if test="merchId != null  and merchId != ''  ">#{merchId},</if>
+			<if test="termId != null  and termId != ''  ">#{termId},</if>
+			<if test="vboxId != null  and vboxId != ''  ">#{vboxId},</if>
+			<if test="voiceName != null  and voiceName != ''  ">#{voiceName},</if>
+			<if test="voiceText != null  and voiceText != ''  ">#{voiceText},</if>
+			<if test="notifyVoice != null  ">#{notifyVoice},</if>
+			<if test="voiceReqTime != null  ">#{voiceReqTime},</if>
+			<if test="voiceRespTime != null  ">#{voiceRespTime},</if>
+			<if test="sendTime != null  ">#{sendTime},</if>
+			<if test="sendFlag != null  and sendFlag != ''  ">#{sendFlag},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateTranNotify" parameterType="com.yh.dao.model.TranNotify">
+        update up_tran_notify
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="notifyContent != null  and notifyContent != ''  ">notify_content = #{notifyContent},</if>
+            <if test="tranNo != null  and tranNo != ''  ">tran_no = #{tranNo},</if>
+            <if test="createTime != null  ">create_time = #{createTime},</if>
+            <if test="merchId != null  and merchId != ''  ">merch_id = #{merchId},</if>
+            <if test="termId != null  and termId != ''  ">term_id = #{termId},</if>
+            <if test="vboxId != null  and vboxId != ''  ">vbox_id = #{vboxId},</if>
+            <if test="voiceName != null  and voiceName != ''  ">voice_name = #{voiceName},</if>
+            <if test="voiceText != null  and voiceText != ''  ">voice_text = #{voiceText},</if>
+            <if test="notifyVoice != null  ">notify_voice = #{notifyVoice},</if>
+            <if test="voiceReqTime != null  ">voice_req_time = #{voiceReqTime},</if>
+            <if test="voiceRespTime != null  ">voice_resp_time = #{voiceRespTime},</if>
+            <if test="sendTime != null  ">send_time = #{sendTime},</if>
+            <if test="sendFlag != null  and sendFlag != ''  ">send_flag = #{sendFlag},</if>
+        </trim>
+        where notify_id = #{notifyId}
+    </update>
+
+	<delete id="deleteTranNotifyById" parameterType="String">
+        delete from up_tran_notify where notify_id = #{notifyId}
+    </delete>
+	
+    <delete id="deleteTranNotifyByIds" parameterType="String">
+        delete from up_tran_notify where notify_id in 
+        <foreach item="notifyId" collection="array" open="(" separator="," close=")">
+            #{notifyId}
+        </foreach>
+    </delete>
+    
+</mapper>

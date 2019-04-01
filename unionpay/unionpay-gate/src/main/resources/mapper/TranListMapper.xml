@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.repository.TranListMapper">
+    
+    <resultMap type="com.yh.dao.model.TranList" id="TranListResult">
+        <result property="id"    column="id"    />
+        <result property="serProvId"    column="ser_prov_id"    />
+        <result property="merchId"    column="merch_id"    />
+        <result property="storeId"    column="store_id"    />
+        <result property="termId"    column="term_id"    />
+        <result property="termInfo"    column="term_info"    />
+        <result property="orderType"    column="order_type"    />
+        <result property="orderNo"    column="order_no"    />
+        <result property="tranAmt"    column="tran_amt"    />
+        <result property="currencyCd"    column="currency_cd"    />
+        <result property="tranNo"    column="tran_no"    />
+        <result property="payAmt"    column="pay_amt"    />
+        <result property="settleAmt"    column="settle_amt"    />
+        <result property="payTime"    column="pay_time"    />
+        <result property="couponInfo"    column="coupon_info"    />
+        <result property="dctGoodsInfo"    column="dct_goods_info"    />
+        <result property="rpReserved"    column="rp_reserved"    />
+        <result property="updatedTime"    column="updated_time"    />
+        <result property="updatedBy"    column="updated_by"    />
+    </resultMap>
+	
+	<sql id="selectTranListVo">
+        select id, ser_prov_id, merch_id, store_id, term_id, term_info, order_type, order_no, tran_amt, currency_cd, tran_no, pay_amt, settle_amt, pay_time, coupon_info, dct_goods_info, rp_reserved, updated_time, updated_by from up_tran_list
+    </sql>
+	
+    <select id="selectTranListList" parameterType="com.yh.dao.model.TranList" resultMap="TranListResult">
+        <include refid="selectTranListVo"/>
+        <where>  
+            <if test="id != null  and id != '' "> and id = #{id}</if>
+             <if test="serProvId != null  and serProvId != '' "> and ser_prov_id = #{serProvId}</if>
+             <if test="merchId != null  and merchId != '' "> and merch_id = #{merchId}</if>
+             <if test="storeId != null  and storeId != '' "> and store_id = #{storeId}</if>
+             <if test="termId != null  and termId != '' "> and term_id = #{termId}</if>
+             <if test="termInfo != null  and termInfo != '' "> and term_info = #{termInfo}</if>
+             <if test="orderType != null  and orderType != '' "> and order_type = #{orderType}</if>
+             <if test="orderNo != null  and orderNo != '' "> and order_no = #{orderNo}</if>
+             <if test="tranAmt != null "> and tran_amt = #{tranAmt}</if>
+             <if test="currencyCd != null  and currencyCd != '' "> and currency_cd = #{currencyCd}</if>
+             <if test="tranNo != null  and tranNo != '' "> and tran_no = #{tranNo}</if>
+             <if test="payAmt != null "> and pay_amt = #{payAmt}</if>
+             <if test="settleAmt != null "> and settle_amt = #{settleAmt}</if>
+             <if test="payTime != null  and payTime != '' "> and pay_time = #{payTime}</if>
+             <if test="couponInfo != null  and couponInfo != '' "> and coupon_info = #{couponInfo}</if>
+             <if test="dctGoodsInfo != null  and dctGoodsInfo != '' "> and dct_goods_info = #{dctGoodsInfo}</if>
+             <if test="rpReserved != null  and rpReserved != '' "> and rp_reserved = #{rpReserved}</if>
+             <if test="updatedTime != null "> and updated_time = #{updatedTime}</if>
+             <if test="updatedBy != null  and updatedBy != '' "> and updated_by = #{updatedBy}</if>
+         </where>
+    </select>
+    
+    <select id="selectTranListById" parameterType="String" resultMap="TranListResult">
+        <include refid="selectTranListVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTranList" parameterType="com.yh.dao.model.TranList">
+        insert into up_tran_list
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null  and id != ''  ">id,</if>
+			<if test="serProvId != null  and serProvId != ''  ">ser_prov_id,</if>
+			<if test="merchId != null  and merchId != ''  ">merch_id,</if>
+			<if test="storeId != null  and storeId != ''  ">store_id,</if>
+			<if test="termId != null  and termId != ''  ">term_id,</if>
+			<if test="termInfo != null  and termInfo != ''  ">term_info,</if>
+			<if test="orderType != null  and orderType != ''  ">order_type,</if>
+			<if test="orderNo != null  and orderNo != ''  ">order_no,</if>
+			<if test="tranAmt != null  ">tran_amt,</if>
+			<if test="currencyCd != null  and currencyCd != ''  ">currency_cd,</if>
+			<if test="tranNo != null  and tranNo != ''  ">tran_no,</if>
+			<if test="payAmt != null  ">pay_amt,</if>
+			<if test="settleAmt != null  ">settle_amt,</if>
+			<if test="payTime != null  and payTime != ''  ">pay_time,</if>
+			<if test="couponInfo != null  and couponInfo != ''  ">coupon_info,</if>
+			<if test="dctGoodsInfo != null  and dctGoodsInfo != ''  ">dct_goods_info,</if>
+			<if test="rpReserved != null  and rpReserved != ''  ">rp_reserved,</if>
+			<if test="updatedTime != null  ">updated_time,</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">updated_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null  and id != ''  ">#{id},</if>
+			<if test="serProvId != null  and serProvId != ''  ">#{serProvId},</if>
+			<if test="merchId != null  and merchId != ''  ">#{merchId},</if>
+			<if test="storeId != null  and storeId != ''  ">#{storeId},</if>
+			<if test="termId != null  and termId != ''  ">#{termId},</if>
+			<if test="termInfo != null  and termInfo != ''  ">#{termInfo},</if>
+			<if test="orderType != null  and orderType != ''  ">#{orderType},</if>
+			<if test="orderNo != null  and orderNo != ''  ">#{orderNo},</if>
+			<if test="tranAmt != null  ">#{tranAmt},</if>
+			<if test="currencyCd != null  and currencyCd != ''  ">#{currencyCd},</if>
+			<if test="tranNo != null  and tranNo != ''  ">#{tranNo},</if>
+			<if test="payAmt != null  ">#{payAmt},</if>
+			<if test="settleAmt != null  ">#{settleAmt},</if>
+			<if test="payTime != null  and payTime != ''  ">#{payTime},</if>
+			<if test="couponInfo != null  and couponInfo != ''  ">#{couponInfo},</if>
+			<if test="dctGoodsInfo != null  and dctGoodsInfo != ''  ">#{dctGoodsInfo},</if>
+			<if test="rpReserved != null  and rpReserved != ''  ">#{rpReserved},</if>
+			<if test="updatedTime != null  ">#{updatedTime},</if>
+			<if test="updatedBy != null  and updatedBy != ''  ">#{updatedBy},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateTranList" parameterType="com.yh.dao.model.TranList">
+        update up_tran_list
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="serProvId != null  and serProvId != ''  ">ser_prov_id = #{serProvId},</if>
+            <if test="merchId != null  and merchId != ''  ">merch_id = #{merchId},</if>
+            <if test="storeId != null  and storeId != ''  ">store_id = #{storeId},</if>
+            <if test="termId != null  and termId != ''  ">term_id = #{termId},</if>
+            <if test="termInfo != null  and termInfo != ''  ">term_info = #{termInfo},</if>
+            <if test="orderType != null  and orderType != ''  ">order_type = #{orderType},</if>
+            <if test="orderNo != null  and orderNo != ''  ">order_no = #{orderNo},</if>
+            <if test="tranAmt != null  ">tran_amt = #{tranAmt},</if>
+            <if test="currencyCd != null  and currencyCd != ''  ">currency_cd = #{currencyCd},</if>
+            <if test="tranNo != null  and tranNo != ''  ">tran_no = #{tranNo},</if>
+            <if test="payAmt != null  ">pay_amt = #{payAmt},</if>
+            <if test="settleAmt != null  ">settle_amt = #{settleAmt},</if>
+            <if test="payTime != null  and payTime != ''  ">pay_time = #{payTime},</if>
+            <if test="couponInfo != null  and couponInfo != ''  ">coupon_info = #{couponInfo},</if>
+            <if test="dctGoodsInfo != null  and dctGoodsInfo != ''  ">dct_goods_info = #{dctGoodsInfo},</if>
+            <if test="rpReserved != null  and rpReserved != ''  ">rp_reserved = #{rpReserved},</if>
+            <if test="updatedTime != null  ">updated_time = #{updatedTime},</if>
+            <if test="updatedBy != null  and updatedBy != ''  ">updated_by = #{updatedBy},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+	<delete id="deleteTranListById" parameterType="String">
+        delete from up_tran_list where id = #{id}
+    </delete>
+	
+    <delete id="deleteTranListByIds" parameterType="String">
+        delete from up_tran_list where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <select id="findTransInfo" parameterType="com.yh.dao.model.TranList" resultMap="TranListResult">
+      select merch_id, order_no, tran_amt, currency_cd, tran_no from up_tran_list
+      where order_no = #{orderNo}
+    </select>
+    
+</mapper>
